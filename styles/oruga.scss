@@ -1,0 +1,28 @@
+//
+// Partial import of @oruga-ui/theme-oruga/dist/scss/oruga-build.scss
+//
+
+$prefix: "o-";
+
+// Relevant rules from "@oruga-ui/theme-oruga/dist/scss/utils/base"
+
+.o-noscroll {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.o-clipped {
+  overflow: hidden;
+}
+
+@import "@oruga-ui/theme-oruga/dist/scss/components/modal";
+
+.o-modal {
+  &__overlay {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+  }
+}

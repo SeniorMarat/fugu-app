@@ -1,0 +1,21 @@
+// Tmp styles for whitebox dev
+
+.tmp {
+  &-button {
+    background: #ccc;
+    height: 40px;
+    &._icon {
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &:not(._icon) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    &._active {
+      background-color: lightgreen;
+    }
+  }
+}
