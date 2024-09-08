@@ -4,10 +4,6 @@ import vueCssModule from "@inetss/vite-plugin-vue-css-module"
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  app: {
-    baseURL: "/fugu-app/",
-  },
-
   compatibilityDate: "2024-08-09",
 
   modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt"],
