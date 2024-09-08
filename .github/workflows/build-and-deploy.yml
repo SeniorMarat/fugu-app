@@ -16,7 +16,7 @@ jobs:
           node-version: "20"
       # Pick your own package manager and build script
       - run: pnpm i
-      - run: npx nuxt build --preset github_pages
+      - run: npx nuxt build --preset github_pages --base /fugu-app/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
