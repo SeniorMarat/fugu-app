@@ -2,7 +2,7 @@ import vueCssModule from "@inetss/vite-plugin-vue-css-module"
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   app: {
     baseURL: "/fugu-app/",
