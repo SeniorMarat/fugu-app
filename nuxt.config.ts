@@ -36,7 +36,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Token for accessing admin API
     adminToken: "",
-    baseUrl: "",
+    baseUrl: "https://seniormarat.github.io/fugu-app/",
     database: {
       url: "postgres://localhost/fugu",
       log: false,
