@@ -8,7 +8,7 @@ export default defineNuxtConfig({
 
   modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt"],
 
-  ssr: true,
+  ssr: false,
 
   nitro: {
     esbuild: {
