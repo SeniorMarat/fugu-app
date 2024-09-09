@@ -11,7 +11,6 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-08-09",
 
   modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt"],
-
   ssr: false,
 
   nitro: {
@@ -22,7 +21,6 @@ export default defineNuxtConfig({
       },
     },
   },
-
   vite: {
     plugins: [
       vueCssModule({ attrName: "mclass", pugClassLiterals: true }),
@@ -31,6 +29,7 @@ export default defineNuxtConfig({
 
   css: [
     "~/styles/index.scss",
+    "bulma/css/bulma.min.css",
   ],
 
   piniaPersistedstate: {

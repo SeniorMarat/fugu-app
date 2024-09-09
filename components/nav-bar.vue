@@ -10,10 +10,10 @@ import { OIcon } from "@oruga-ui/oruga-next"
   .tabs
     .tab
       h5 Home
-      o-icon(icon="check-circle" size="small")
+      o-icon(icon="check-circle" class="icon" size="small")
     .tab
       h5 Frens
-      o-icon(icon="home" size="small")
+      o-icon(icon="home" class="is-primary icon" size="small")
     .tab
       h5 Tasks
 </template>
@@ -26,7 +26,7 @@ import { OIcon } from "@oruga-ui/oruga-next"
   align-items: center;
   justify-content: center;
   align-items: center;
-  background-color: orange;
+  background-color: #393333;
   bottom: 0;
   left: 0;
   width: 100%;

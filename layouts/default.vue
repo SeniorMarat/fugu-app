@@ -10,7 +10,7 @@
 
 <style module lang="scss">
 body {
-  background-color: aqua;
+  background-image: linear-gradient(-45deg, #08c4d8, #0090e3);
 }
 .layout {
   display: flex;
