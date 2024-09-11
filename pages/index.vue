@@ -21,7 +21,7 @@ import { OButton } from "@oruga-ui/oruga-next"
   width: 80%;
   z-index: 1;
   position: fixed;
-  bottom: 80px;
+  bottom: 96px;
   background-color: #ffc422;
   color: #3a3333;
   font-family: "Jua", sans-serif;
@@ -29,6 +29,7 @@ import { OButton } from "@oruga-ui/oruga-next"
   font-size: 36px;
   padding: 0px;
   border-radius: 10px;
+  height: 40px;
   box-shadow: 0px 4px 4px 0px #00000040;
   border: 1px solid #000000;
 }
