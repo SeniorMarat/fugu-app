@@ -10,7 +10,7 @@
 
 <style module lang="scss">
 body {
-  background-image: linear-gradient(-45deg, #08c4d8, #0090e3);
+  background-image: linear-gradient(-90deg, #08c8d7, #0499e1);
 }
 .layout {
   display: flex;

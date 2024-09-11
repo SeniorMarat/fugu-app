@@ -26,7 +26,7 @@ import { OIcon } from "@oruga-ui/oruga-next"
   align-items: center;
   justify-content: center;
   align-items: center;
-  background-color: #393333;
+  background-color: #3a3333;
   bottom: 0;
   left: 0;
   width: 100%;
