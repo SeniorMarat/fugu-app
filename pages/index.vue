@@ -6,7 +6,7 @@ import { OButton } from "@oruga-ui/oruga-next"
 .page
   score
   img(src="/public/cute_fugu.png" style="min-width: 120%")
-  o-button(class="button is-warning" style="width: 80%") Feed
+  o-button.feed Feed
 </template>
 
 <style module lang="scss">
@@ -15,5 +15,21 @@ import { OButton } from "@oruga-ui/oruga-next"
   flex-direction: column;
   gap: 10px;
   align-items: center;
+}
+
+.feed {
+  width: 80%;
+  z-index: 1;
+  position: fixed;
+  bottom: 80px;
+  background-color: #ffc422;
+  color: #3a3333;
+  font-family: "Jua", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  padding: 0px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  border: 1px solid #000000;
 }
 </style>
