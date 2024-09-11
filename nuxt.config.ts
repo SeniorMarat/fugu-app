@@ -25,7 +25,10 @@ export default defineNuxtConfig({
   vite: {
     plugins: [
       vueCssModule({ attrName: "mclass", pugClassLiterals: true }),
-      vsharp(),
+      vsharp({
+        includePublic: ["public/fugu.png"],
+        width: 1280,
+      }),
     ],
   },
 
