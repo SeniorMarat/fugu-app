@@ -5,7 +5,7 @@ import { OButton } from "@oruga-ui/oruga-next"
 <template lang="pug">
 .page
   score
-  img(src="/public/cute_fugu.png" style="min-width: 120%")
+  img(src="/public/fugu.png" style="max-width: 90%")
   o-button.feed Feed
 </template>
 
