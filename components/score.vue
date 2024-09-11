@@ -34,6 +34,5 @@ const username = "SUNDVR"
   font-size: 20px;
   -webkit-text-stroke: 0.5px #000;
   margin-top: -20px;
-  padding-bottom: 140px;
 }
 </style>
