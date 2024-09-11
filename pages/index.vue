@@ -17,6 +17,22 @@ import { OButton } from "@oruga-ui/oruga-next"
   align-items: center;
 }
 
+img {
+  animation: move-up-down 3s infinite;
+}
+
+@keyframes move-up-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .feed {
   width: 80%;
   z-index: 1;
