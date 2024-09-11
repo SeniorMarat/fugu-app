@@ -14,6 +14,7 @@
 - Vite (https://vitejs.dev/guide/)
 - Pinia (https://pinia.vuejs.org/introduction.html)
 - Oruga UI (https://oruga-ui.com/documentation/)
+- Sass "SCSS" (https://sass-lang.com/documentation/)
 
 При выполнении задачи надо
 1) Создать новую ветку
