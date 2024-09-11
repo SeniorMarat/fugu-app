@@ -18,7 +18,7 @@ import { OButton } from "@oruga-ui/oruga-next"
 }
 
 img {
-  animation: move-up-down 3s infinite;
+  animation: move-up-down 5s infinite;
 }
 
 @keyframes move-up-down {
