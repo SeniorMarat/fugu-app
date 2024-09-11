@@ -14,7 +14,6 @@
 - Vite (https://vitejs.dev/guide/)
 - Pinia (https://pinia.vuejs.org/introduction.html)
 - Oruga UI (https://oruga-ui.com/documentation/)
-- Bulma (https://bulma.io/documentation/)
 
 При выполнении задачи надо
 1) Создать новую ветку

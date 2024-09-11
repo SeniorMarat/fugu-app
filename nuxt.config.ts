@@ -34,7 +34,6 @@ export default defineNuxtConfig({
 
   css: [
     "~/styles/index.scss",
-    "bulma/css/bulma.min.css",
   ],
 
   piniaPersistedstate: {

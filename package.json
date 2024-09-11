@@ -20,7 +20,6 @@
     "@oruga-ui/oruga-next": "0.9.0-pre.1",
     "@oruga-ui/theme-oruga": "^0.4.1",
     "advisory-lock": "^2.0.0",
-    "bulma": "^1.0.2",
     "concurrent-promise-queue": "^1.0.3",
     "date-fns": "^3.6.0",
     "graphile-worker": "^0.16.6",
