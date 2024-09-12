@@ -2,20 +2,17 @@
 Навигационная панель
 -->
 <script setup lang="ts">
-import { OIcon } from "@oruga-ui/oruga-next"
 </script>
 
 <template lang="pug">
 .nav-bar
   .tabs
     .tab
-      h5 Home
-      o-icon(icon="check-circle" class="icon" size="small")
+      nav-button(label="Home")
     .tab
-      h5 Frens
-      o-icon(icon="home" class="is-primary icon" size="small")
+      nav-button(label="Tasks")
     .tab
-      h5 Tasks
+      nav-button(label="Frens")
 </template>
 
 <style modulelang="scss">
@@ -42,8 +39,8 @@ import { OIcon } from "@oruga-ui/oruga-next"
 .tabs {
   display: flex;
   .tab {
-    padding: 10px;
-    flex: 1;
+    padding: 25px;
+    margin-bottom: -30px;
     text-align: center;
     &._active {
       background: #ddd;
