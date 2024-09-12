@@ -2,7 +2,7 @@
   "name": "fugu",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.7.0",
+  "packageManager": "pnpm@9.10.0",
   "engines": {
     "node": "20",
     "pnpm": "9.10.0"
