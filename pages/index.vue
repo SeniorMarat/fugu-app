@@ -18,6 +18,7 @@ import { OButton } from "@oruga-ui/oruga-next"
 }
 
 img {
+  margin-top: 90px;
   animation: move-up-down 3s infinite;
 }
 
