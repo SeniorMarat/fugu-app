@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { OButton } from "@oruga-ui/oruga-next"
+import { OButton, OIcon } from "@oruga-ui/oruga-next"
 
-const props = defineProps({
-  label: { type: String, default: "" },
-})
+const props = defineProps<{
+  label: string
+  icon: string
+}>()
 </script>
 
 <template lang="pug">
-o-button.nav-button {{ props.label }}
+o-button.nav-button
+  o-icon(pack="mdi" :icon="icon" size="medium")
+  | {{ props.label }}
 </template>
 
 <style module lang="scss">

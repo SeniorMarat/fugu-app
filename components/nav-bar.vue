@@ -8,11 +8,11 @@
 .nav-bar
   .tabs
     .tab
-      nav-button(label="Home")
+      nav-button(label="Home" icon="home-outline")
     .tab
-      nav-button(label="Tasks")
+      nav-button(label="Tasks" icon="book-open-variant-outline")
     .tab
-      nav-button(label="Frens")
+      nav-button(label="Frens" icon="account-group-outline")
 </template>
 
 <style modulelang="scss">
