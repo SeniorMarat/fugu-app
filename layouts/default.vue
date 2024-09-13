@@ -3,6 +3,7 @@
 
 <template lang="pug">
 .layout
+  bubbles
   .main
     .page: nuxt-page
   nav-bar
@@ -16,6 +17,7 @@ body {
 .layout {
   display: flex;
   height: 100svh;
+  width: 100%;
   background-color: inherit;
   flex-direction: column;
 }
@@ -23,6 +25,7 @@ body {
 .main {
   flex: 1;
   display: flex;
+  position: absolute;
   flex-direction: column;
 }
 
