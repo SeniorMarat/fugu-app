@@ -6,6 +6,9 @@ interface Bubble {
   speed: number
 }
 
+const bubble_quantity = 15
+const bubble_images = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"]
+
 const bubbles = ref<Bubble[]>([])
 
 onMounted(() => {
@@ -14,10 +17,9 @@ onMounted(() => {
 })
 
 function createBubbles() {
-  const bubbleImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"]
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < bubble_quantity; i++) {
     bubbles.value.push({
-      image: bubbleImages[Math.floor(Math.random() * bubbleImages.length)],
+      image: bubble_images[Math.floor(Math.random() * bubble_images.length)],
       left: Math.random() * 100,
       top: Math.random() * 100,
       speed: Math.random() * (0.5 - 0.2) + 0.2,
@@ -33,7 +35,7 @@ function animateBubbles() {
         bubble.top = 100
       }
     })
-  }, 16) // 16ms = 60fps
+  }, 16)
 }
 function get_bubble_path(name: string) {
   return new URL(`/public/bubbles/${name}`, import.meta.url).href
