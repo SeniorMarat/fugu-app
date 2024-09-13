@@ -7,7 +7,7 @@ interface Bubble {
 }
 
 const bubble_quantity = 15
-const bubble_images = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"]
+const bubble_images = ["1.png", "2.png", "3.png", "4.png", "5.png"]
 
 const bubbles = ref<Bubble[]>([])
 
@@ -61,6 +61,6 @@ function get_bubble_path(name: string) {
   position: absolute;
   width: 50px;
   height: 50px;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 </style>

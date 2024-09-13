@@ -27,12 +27,12 @@ const username = "SUNDVR"
   font-size: 64px;
   -webkit-text-stroke: 1px #000;
   text-shadow: 0px 4px 4px #00000040;
-  margin-top: -15px;
+  margin-top: -10px;
 }
 .label {
   color: #f5f5f5;
   font-size: 20px;
   -webkit-text-stroke: 0.5px #000;
-  margin-top: -20px;
+  margin-top: -18px;
 }
 </style>
