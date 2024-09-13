@@ -4,11 +4,12 @@ import { OButton, OIcon } from "@oruga-ui/oruga-next"
 const props = defineProps<{
   label: string
   icon: string
+  path?: string
 }>()
 </script>
 
 <template lang="pug">
-o-button.nav-button
+o-button.nav-button(tag="router-link" :to="props.path")
   o-icon(pack="mdi" :icon="icon" size="medium")
   | {{ props.label }}
 </template>
@@ -29,5 +30,6 @@ o-button.nav-button
   font-family: "Inter";
   font-size: 16px;
   font-weight: 700;
+  text-decoration: none;
 }
 </style>
