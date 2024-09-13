@@ -42,14 +42,17 @@ function get_bubble_path(name: string) {
 
 <template lang="pug">
 .bubble-container
-  img(v-for="bubble in bubbles" :key="bubble.image" class="bubble" :style="{ left: `${bubble.left}%`, top: `${bubble.top}%` }" :src="get_bubble_path(bubble.image)")
+  img(v-for="(bubble, index) in bubbles" :key="index" class="bubble" :style="{ left: `${bubble.left}%`, top: `${bubble.top}%` }" :src="get_bubble_path(bubble.image)")
 </template>
 
 <style>
 .bubble-container {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 .bubble {
