@@ -32,4 +32,10 @@ o-button.nav-button(tag="router-link" :to="props.path")
   font-weight: 700;
   text-decoration: none;
 }
+
+.nav-button:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
 </style>
