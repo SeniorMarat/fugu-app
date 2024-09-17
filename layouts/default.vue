@@ -11,7 +11,7 @@
 
 <style module lang="scss">
 body {
-  background-image: linear-gradient(-90deg, #2783d8, #0499e1);
+  background-image: url(background.jpg);
   overflow: hidden;
 }
 .layout {
