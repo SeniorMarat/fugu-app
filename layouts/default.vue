@@ -11,7 +11,7 @@
 
 <style module lang="scss">
 body {
-  background-image: url(background.png);
+  background-image: url("/public/background.png");
   overflow: hidden;
 }
 .layout {
