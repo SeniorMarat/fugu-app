@@ -19,7 +19,7 @@ import { OButton } from "@oruga-ui/oruga-next"
 
 .fugu {
   margin-top: 15vh;
-  animation: move-up-down 3s infinite;
+  animation: move-up-down 6s infinite ease-in-out;
   max-width: 90%;
 }
 
@@ -28,7 +28,7 @@ import { OButton } from "@oruga-ui/oruga-next"
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-25px);
   }
   100% {
     transform: translateY(0);
