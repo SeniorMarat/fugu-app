@@ -20,7 +20,7 @@ import { OButton } from "@oruga-ui/oruga-next"
 .fugu {
   margin-top: 15vh;
   animation: move-up-down 3s infinite;
-  max-width: 75%;
+  max-width: 90%;
 }
 
 @keyframes move-up-down {
@@ -50,6 +50,6 @@ import { OButton } from "@oruga-ui/oruga-next"
   border-radius: 10px;
   height: 60px;
   box-shadow: 0px 4px 4px 0px #00000040;
-  border: 1px solid #fff;
+  border: 0.5px solid #fff;
 }
 </style>
