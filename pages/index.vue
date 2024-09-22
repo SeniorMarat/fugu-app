@@ -42,8 +42,9 @@ import { TonConnectButton } from "@townsquarelabs/ui-vue"
   z-index: 1;
   position: fixed;
   bottom: 96px;
-  background-color: #ffc422;
-  color: #3a3333;
+  background-color: #25dcff;
+  color: #fff;
+  -webkit-text-stroke: 1px #000;
   font-family: "Jua", sans-serif;
   font-weight: 400;
   font-size: 36px;
