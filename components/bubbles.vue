@@ -22,7 +22,7 @@ function createBubbles() {
       image: bubble_images[Math.floor(Math.random() * bubble_images.length)],
       left: Math.random() * 100,
       top: Math.random() * 100,
-      speed: Math.random() * (0.5 - 0.2) + 0.2,
+      speed: Math.random() * (0.5 - 0.2) + 0.1,
     })
   }
 }
@@ -71,5 +71,15 @@ function get_bubble_path(name: string) {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: sideWays 4s ease-in-out infinite alternate;
+}
+
+@keyframes sideWays {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 20px;
+  }
 }
 </style>
