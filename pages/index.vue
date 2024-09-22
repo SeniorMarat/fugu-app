@@ -6,7 +6,7 @@ import { TonConnectButton } from "@townsquarelabs/ui-vue"
 <template lang="pug">
 .page
   score
-  img(src="/public/small_fugu.png" style="max-width: 75%")
+  img(src="/public/small_fugu.png").fugu
   ton-connect-button
   o-button.feed Feed
 </template>
@@ -19,9 +19,10 @@ import { TonConnectButton } from "@townsquarelabs/ui-vue"
   align-items: center;
 }
 
-img {
+.fugu {
   margin-top: 15vh;
   animation: move-up-down 3s infinite;
+  max-width: 75%;
 }
 
 @keyframes move-up-down {

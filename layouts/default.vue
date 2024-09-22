@@ -23,7 +23,6 @@ body {
 }
 
 .main {
-  flex: 1;
   display: flex;
   position: absolute;
   flex-direction: column;
