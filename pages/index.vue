@@ -5,7 +5,8 @@ import { OButton } from "@oruga-ui/oruga-next"
 <template lang="pug">
 .page
   score
-  img(src="/public/small_fugu.png").fugu
+  div(@click="() => $router.push('/game')").fugu
+    img(src="/public/small_fugu.png" style="width: 100%;")
   o-button.feed Feed
 </template>
 
