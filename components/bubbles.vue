@@ -4,6 +4,7 @@ interface Bubble {
   left: number
   top: number
   speed: number
+  size: number
 }
 
 const bubble_quantity = 15
@@ -23,6 +24,7 @@ function createBubbles() {
       left: Math.random() * 100,
       top: Math.random() * 100,
       speed: Math.random() * (0.5 - 0.2) + 0.1,
+      size: Math.floor(Math.random() * (60 - 30 + 1)) + 30,
     })
   }
 }
@@ -45,8 +47,8 @@ function get_bubble_path(name: string) {
 
 <template lang="pug">
 .bubble-container
-  .bubble(v-for="(bubble, index) in bubbles" :key="index" :style="{ left: `${bubble.left}%`, top: `${bubble.top}%` }")
-    img(:src="get_bubble_path(bubble.image)" style="width: 35px; height: 35px")
+  .bubble(v-for="(bubble, index) in bubbles" :key="index" :style="{ left: `${bubble.left}%`, top: `${bubble.top}%`, width: `${bubble.size}px`, height: `${bubble.size}px` }")
+    img(:src="get_bubble_path(bubble.image)" style="width: 70%;")
 </template>
 
 <style>
@@ -65,8 +67,6 @@ function get_bubble_path(name: string) {
   box-shadow:
     0 10px 15px rgba(0, 0, 0, 0.2),
     inset 0px 5px 15px 2.5px rgba(255, 255, 255, 1);
-  height: 50px;
-  width: 50px;
   padding-top: 5px;
   display: flex;
   align-items: center;
