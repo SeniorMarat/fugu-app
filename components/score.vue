@@ -24,7 +24,7 @@ const username = initDataUnsafe.user?.username.toUpperCase() || "SUNDVR"
   padding-top: 15px;
 }
 .value {
-  color: #fff;
+  color: #ffc422;
   font-size: 64px;
   -webkit-text-stroke: 1px #000;
   text-shadow: 0px 4px 4px #00000040;

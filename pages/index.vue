@@ -40,7 +40,7 @@ import { OButton } from "@oruga-ui/oruga-next"
   z-index: 1;
   position: fixed;
   bottom: 96px;
-  background-color: #25dcff;
+  background-color: #fb7013;
   color: #fff;
   -webkit-text-stroke: 1px #000;
   font-family: "Jua", sans-serif;
@@ -50,6 +50,6 @@ import { OButton } from "@oruga-ui/oruga-next"
   border-radius: 10px;
   height: 60px;
   box-shadow: 0px 4px 4px 0px #00000040;
-  border: 0.5px solid #fff;
+  border: 0.5px solid #000;
 }
 </style>
