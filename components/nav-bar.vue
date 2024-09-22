@@ -21,25 +21,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 116px;
-}
-
-.o-icon {
-  width: 24px;
-  height: 24px;
-  font-size: 24px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 70px;
+  background-color: #c5caff47;
+  color: #fff;
+  border: 2px solid #c3cfd933;
+  box-shadow: 4px 4px 4px 0px #00000040;
+  border-radius: 20px;
 }
 
 .tabs {
   display: flex;
   .tab {
     padding: 25px;
-    margin-bottom: -30px;
     text-align: center;
     &._active {
       background: #ddd;
