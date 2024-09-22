@@ -21,6 +21,12 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./.output/public
+      - name: Send Telegram notification on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: 4567376206
+          token: 7515836304:AAHrfYhgCuFFKcyyvYvrdy8wf3lF6CWrT28
+          message: ${{ github.event.head_commit.message }}
   # Deployment job
   deploy:
     # Add a dependency to the build job
@@ -39,3 +45,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Send Telegram notification on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: 4567376206
+          token: 7515836304:AAHrfYhgCuFFKcyyvYvrdy8wf3lF6CWrT28
+          message: ${{ github.event.head_commit.message }}
