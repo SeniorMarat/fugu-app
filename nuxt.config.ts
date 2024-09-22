@@ -6,6 +6,9 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: "/fugu-app/",
+    head: {
+      script: [{ src: "https://telegram.org/js/telegram-web-app.js" }],
+    },
   },
 
   compatibilityDate: "2024-08-09",
