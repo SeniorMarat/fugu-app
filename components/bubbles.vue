@@ -7,7 +7,7 @@ interface Bubble {
 }
 
 const bubble_quantity = 15
-const bubble_images = ["1.png", "2.png", "3.png", "4.png"]
+const bubble_images = ["ton.png"]
 
 const bubbles = ref<Bubble[]>([])
 
@@ -37,6 +37,7 @@ function animateBubbles() {
     })
   }, 16)
 }
+
 function get_bubble_path(name: string) {
   return new URL(`/public/bubbles/${name}`, import.meta.url).href
 }
@@ -44,7 +45,8 @@ function get_bubble_path(name: string) {
 
 <template lang="pug">
 .bubble-container
-  img(v-for="(bubble, index) in bubbles" :key="index" class="bubble" :style="{ left: `${bubble.left}%`, top: `${bubble.top}%` }" :src="get_bubble_path(bubble.image)")
+  .bubble(v-for="(bubble, index) in bubbles" :key="index" :style="{ left: `${bubble.left}%`, top: `${bubble.top}%` }")
+    img(:src="get_bubble_path(bubble.image)" style="width: 35px; height: 35px")
 </template>
 
 <style>
@@ -59,8 +61,15 @@ function get_bubble_path(name: string) {
 
 .bubble {
   position: absolute;
-  width: 50px;
+  border-radius: 50%;
+  box-shadow:
+    0 10px 15px rgba(0, 0, 0, 0.2),
+    inset 0px 5px 15px 2.5px rgba(255, 255, 255, 1);
   height: 50px;
-  opacity: 0.5;
+  width: 50px;
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
