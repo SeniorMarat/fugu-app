@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { OButton } from "@oruga-ui/oruga-next"
-import { TonConnectButton } from "@townsquarelabs/ui-vue"
 </script>
 
 <template lang="pug">
 .page
   score
   img(src="/public/small_fugu.png").fugu
-  ton-connect-button
   o-button.feed Feed
 </template>
 
