@@ -20,7 +20,6 @@ o-button.nav-button(tag="router-link" :to="props.path")
   height: 61px;
   display: flex;
   flex-direction: column;
-  background-color: #3436b371;
   justify-content: center;
   align-items: center;
   color: #fff;

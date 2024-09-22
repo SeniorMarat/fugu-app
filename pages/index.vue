@@ -52,6 +52,6 @@ import { TonConnectButton } from "@townsquarelabs/ui-vue"
   border-radius: 10px;
   height: 60px;
   box-shadow: 0px 4px 4px 0px #00000040;
-  border: 1px solid #000000;
+  border: 1px solid #fff;
 }
 </style>

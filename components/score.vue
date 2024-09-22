@@ -8,7 +8,6 @@ const username = initDataUnsafe.user?.username.toUpperCase() || "SUNDVR"
 .score
   .username {{ username }} SCORE:
   .value 130000
-  .label fugu points
 </template>
 
 <style module lang="scss">
@@ -18,14 +17,14 @@ const username = initDataUnsafe.user?.username.toUpperCase() || "SUNDVR"
   font-weight: 400;
 }
 .username {
-  color: #f5751f;
+  color: #fff;
   font-size: 20px;
   -webkit-text-stroke: 0.5px #000;
   text-shadow: 0px 4px 4px #00000040;
   padding-top: 15px;
 }
 .value {
-  color: #fec925;
+  color: #fff;
   font-size: 64px;
   -webkit-text-stroke: 1px #000;
   text-shadow: 0px 4px 4px #00000040;
