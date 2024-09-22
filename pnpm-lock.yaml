@@ -54,9 +54,6 @@ importers:
       '@inetss/vite-plugin-vue-css-module':
         specifier: ^2.1.0
         version: 2.1.0(@vue/compiler-core@3.5.3)(vite@5.4.3(@types/node@22.5.4)(sass-embedded@1.78.0)(terser@5.31.6))(vue@3.5.3(typescript@5.5.4))
-      '@mdi/font':
-        specifier: ^7.4.47
-        version: 7.4.47
       '@nuxtjs/google-fonts':
         specifier: ^3.2.0
         version: 3.2.0(magicast@0.3.5)(rollup@4.21.2)(webpack-sources@3.2.3)
@@ -969,9 +966,6 @@ packages:
   '@mapbox/node-pre-gyp@1.0.11':
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
-
-  '@mdi/font@7.4.47':
-    resolution: {integrity: sha512-43MtGpd585SNzHZPcYowu/84Vz2a2g31TvPMTm9uTiCSWzaheQySUcSyUH/46fPnuPQWof2yd0pGBtzee/IQWw==}
 
   '@microsoft/api-extractor-model@7.28.13':
     resolution: {integrity: sha512-39v/JyldX4MS9uzHcdfmjjfS6cYGAoXV+io8B5a338pkHiSt+gy2eXQ0Q7cGFJ7quSa1VqqlMdlPrB6sLR/cAw==}
@@ -5967,8 +5961,6 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
-
-  '@mdi/font@7.4.47': {}
 
   '@microsoft/api-extractor-model@7.28.13(@types/node@22.5.4)':
     dependencies:

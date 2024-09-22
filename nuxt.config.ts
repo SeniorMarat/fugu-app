@@ -32,7 +32,6 @@ export default defineNuxtConfig({
 
   css: [
     "~/styles/index.scss",
-    "@mdi/font/css/materialdesignicons.css",
   ],
 
   piniaPersistedstate: {

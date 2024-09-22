@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { OButton, OIcon } from "@oruga-ui/oruga-next"
+import { OButton } from "@oruga-ui/oruga-next"
 
 const props = defineProps<{
   label: string
   icon: string
   path?: string
 }>()
+
+function get_svg_path(name: string) {
+  return new URL(`/public/${name}.svg`, import.meta.url).href
+}
 </script>
 
 <template lang="pug">
 o-button.nav-button(tag="router-link" :to="props.path")
-  o-icon(pack="mdi" :icon="icon" size="medium")
+  img(class="icon" :src="get_svg_path(props.icon)")
   | {{ props.label }}
 </template>
 
@@ -20,7 +24,7 @@ o-button.nav-button(tag="router-link" :to="props.path")
   height: 61px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: #3c71a23b;
   color: #fff;
