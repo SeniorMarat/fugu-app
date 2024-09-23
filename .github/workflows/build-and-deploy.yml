@@ -29,6 +29,13 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./.output/public
+      - name: The build had failed
+        if: ${{ failure() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: Build failed
   # Deployment job
   deploy:
     # Add a dependency to the build job
@@ -53,3 +60,10 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: deploy to github pages succeed
+      - name: the deploy had failed
+        if: ${{ failure() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: deploy to github pages failed
