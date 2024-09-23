@@ -6,6 +6,7 @@ const props = defineProps<{
   icon: string
   path?: string
   rounded?: "all" | "left" | "right"
+  onClick?: () => void
 }>()
 
 function get_svg_path(name: string) {
@@ -27,7 +28,7 @@ const roundedClass = computed(() => {
 </script>
 
 <template lang="pug">
-o-button.nav-button.all_rounded(:class="roundedClass" tag="router-link" :to="props.path")
+o-button.nav-button.all_rounded(:class="roundedClass" tag="router-link" :to="props.path || '/'" @click="props.onClick")
   img(class="icon" :src="get_svg_path(props.icon)" style="width: 50%;")
   | {{ props.label }}
 </template>

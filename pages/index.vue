@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { OButton } from "@oruga-ui/oruga-next"
+import { useTonConnectModal } from "@townsquarelabs/ui-vue"
+
+const { open } = useTonConnectModal()
 </script>
 
 <template lang="pug">
@@ -7,7 +10,7 @@ import { OButton } from "@oruga-ui/oruga-next"
   score
   div(style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%;")
     nav-button(icon="shop" label="shop" rounded="right" path="/shop")
-    nav-button(icon="wallet" label="wallet" rounded="left" path="/wallet")
+    nav-button(icon="wallet" label="wallet" rounded="left" :on-click="open")
   div(@click="() => $router.push('/game')").fugu
     img(src="/public/small_fugu.png" style="width: 100%;")
   o-button.feed Feed
