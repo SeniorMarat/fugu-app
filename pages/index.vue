@@ -25,7 +25,7 @@ const { open } = useTonConnectModal()
 }
 
 .fugu {
-  margin-top: 15vh;
+  margin-top: 7vh;
   animation: move-up-down 6s infinite ease-in-out;
   max-width: 90%;
 }
