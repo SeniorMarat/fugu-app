@@ -20,7 +20,7 @@ body {
   );
   background-size: cover;
   overflow: hidden;
-  animation: gradient 10s infinite linear;
+  animation: gradient 5s infinite linear;
   background-size: 400%;
 }
 .layout {
