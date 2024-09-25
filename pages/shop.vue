@@ -8,7 +8,7 @@ const my_transaction = {
   messages: [
     {
       address: "UQDhTbUFoREWU968r97w_nwvrcR991bqeVXLYX_TO6UcgRzS",
-      amount: "10000",
+      amount: "10000000",
     },
   ],
 }
