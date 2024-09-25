@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { OButton } from "@oruga-ui/oruga-next"
-
-// const { open } = useTonConnectModal()
 </script>
 
 <template lang="pug">
