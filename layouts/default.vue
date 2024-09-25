@@ -11,16 +11,12 @@
 
 <style module lang="scss">
 body {
-  background: rgb(74, 72, 231);
   background: linear-gradient(
-    286deg,
-    rgba(74, 72, 231, 1) 0%,
-    rgba(236, 162, 237, 1) 17%,
-    rgba(125, 120, 224, 1) 35%,
-    rgba(141, 166, 226, 1) 48%,
-    rgba(44, 176, 245, 1) 69%,
-    rgba(11, 177, 226, 1) 88%,
-    rgba(0, 212, 255, 1) 100%
+    149deg,
+    rgba(24, 187, 156, 1) 0%,
+    rgba(106, 57, 175, 1) 42%,
+    rgba(187, 24, 148, 1) 72%,
+    rgba(115, 53, 134, 1) 100%
   );
   background-size: cover;
   overflow: hidden;
