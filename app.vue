@@ -2,7 +2,7 @@
 import { TonConnectUIProvider } from "@townsquarelabs/ui-vue"
 
 const options = {
-  manifestUrl: "https://seniormarat.github.io/fugu-app/tonconnect-manifest.json",
+  manifestUrl: "https://seniormarat.github.io/fugu-app/ton-connect-manifest.json",
 }
 </script>
 
