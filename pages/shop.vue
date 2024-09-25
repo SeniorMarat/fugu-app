@@ -8,11 +8,7 @@ const my_transaction = {
   messages: [
     {
       address: "UQDhTbUFoREWU968r97w_nwvrcR991bqeVXLYX_TO6UcgRzS",
-      amount: "1000",
-    },
-    {
-      address: "UQDhTbUFoREWU968r97w_nwvrcR991bqeVXLYX_TO6UcgRzS",
-      amount: "2000",
+      amount: "10000",
     },
   ],
 }
