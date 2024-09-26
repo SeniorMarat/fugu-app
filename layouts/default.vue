@@ -11,8 +11,20 @@
 
 <style module lang="scss">
 body {
-  background: rgb(63, 94, 251);
-  background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+  background: rgb(186, 85, 249);
+  background: linear-gradient(
+    90deg,
+    rgba(186, 85, 249, 1) 0%,
+    rgba(150, 93, 249, 1) 6%,
+    rgba(95, 90, 251, 1) 18%,
+    rgba(81, 97, 241, 1) 26%,
+    rgba(88, 118, 247, 1) 31%,
+    rgba(80, 144, 252, 1) 41%,
+    rgba(69, 174, 252, 1) 49%,
+    rgba(51, 204, 253, 1) 62%,
+    rgba(36, 227, 254, 1) 73%,
+    rgba(0, 212, 255, 1) 100%
+  );
   background-size: cover;
   overflow: hidden;
   animation: gradient 5s infinite linear;
