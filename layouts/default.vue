@@ -11,13 +11,8 @@
 
 <style module lang="scss">
 body {
-  background: linear-gradient(
-    149deg,
-    rgba(24, 187, 156, 1) 0%,
-    rgba(106, 57, 175, 1) 42%,
-    rgba(187, 24, 148, 1) 72%,
-    rgba(115, 53, 134, 1) 100%
-  );
+  background: rgb(63, 94, 251);
+  background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
   background-size: cover;
   overflow: hidden;
   animation: gradient 5s infinite linear;
