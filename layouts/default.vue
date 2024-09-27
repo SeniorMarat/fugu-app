@@ -13,12 +13,13 @@
 body {
   background: linear-gradient(
     149deg,
-    rgba(0, 255, 255, 1) 0%,
-    rgba(0, 191, 255, 1) 42%,
-    rgba(187, 24, 148, 1) 72%,
-    rgba(65, 105, 225, 1) 100%
+    rgba(187, 24, 148, 1) 0%,
+    rgba(94, 65, 225, 1) 42%,
+    rgba(0, 98, 255, 1) 72%,
+    rgba(0, 115, 255, 1) 100%
   );
   animation: gradient 10s infinite linear;
+
   background-size: 400%;
 
   background-size: cover;
