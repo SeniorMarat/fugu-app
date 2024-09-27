@@ -13,17 +13,14 @@
 body {
   background: linear-gradient(
     149deg,
-    rgba(187, 24, 148, 1) 0%,
-    rgba(94, 65, 225, 1) 21%,
-    rgba(0, 98, 255, 1) 36%,
-    rgba(0, 115, 255, 1) 50%,
-    rgba(187, 24, 148, 1) 64%,
-    rgba(94, 65, 225, 1) 79%,
-    rgba(0, 98, 255, 1) 84%,
-    rgba(0, 115, 255, 1) 100%
+    rgba(0, 170, 255, 1) 0%,
+    rgba(0, 98, 255, 1) 42%,
+    rgba(94, 65, 225, 1) 72%,
+    rgba(187, 24, 148, 1) 100%
   );
+  animation: gradient 10s infinite linear;
+  background-size: 400%;
   overflow: hidden;
-  background-size: 200% 200%;
 }
 .layout {
   display: flex;
@@ -46,10 +43,13 @@ body {
 
 @keyframes gradient {
   0% {
-    background-position: 0% 0%;
+    background-position: 80% 0%;
+  }
+  50% {
+    background-position: 20% 100%;
   }
   100% {
-    background-position: 300% 300%;
+    background-position: 80% 0%;
   }
 }
 </style>
