@@ -22,7 +22,6 @@ body {
     rgba(0, 98, 255, 1) 84%,
     rgba(0, 115, 255, 1) 100%
   );
-  animation: gradient 5s infinite linear;
   overflow: hidden;
   background-size: 200% 200%;
 }
