@@ -3,7 +3,7 @@
 </script>
 
 <template lang="pug">
-pre You have no frens, that is sigma
+div
 </template>
 
 <style module lang="scss">
