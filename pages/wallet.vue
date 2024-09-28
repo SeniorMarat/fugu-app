@@ -1,21 +1,30 @@
 <script setup lang="ts">
-import { OButton } from "@oruga-ui/oruga-next"
-import { useTonAddress, useTonConnectModal } from "@townsquarelabs/ui-vue"
+import { OButton, ODropdown, ODropdownItem } from "@oruga-ui/oruga-next"
+import { useTonAddress, useTonConnectModal, useTonConnectUI } from "@townsquarelabs/ui-vue"
 
 const address = useTonAddress()
 const { open } = useTonConnectModal()
 const display_address = computed(() => address.value.slice(0, 3) + "..." + address.value.slice(-3))
+const [TonConnectUI] = useTonConnectUI()
+
+async function disconnect() {
+  await TonConnectUI.disconnect()
+}
 </script>
 
 <template lang="pug">
 .wallet
-  o-button.wallet-button(v-if="address")
-    img(class="icon" src="/public/wallet-ton-icon.svg" style="width: 18px; margin-right: 5px;")
-    | {{ display_address }}
-  o-button.connect-button(v-else @click="open")
+  o-dropdown(v-if="address")
+    template(#trigger)
+      o-button.wallet-button
+        img(class="icon" src="/public/wallet-ton-icon.svg" style="width: 18px; margin-right: 5px;")
+        | {{ display_address }}
+    o-dropdown-item.disconnect-button(@click="disconnect") Disconnect
+  o-button.connect-button(v-if="!address" @click="open")
     div(style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; width: 100%;")
       img(class="icon" src="/public/wallet.svg" style="width: 50px;")
       | Connect Wallet
+
   .action-container
     .balance-label Balance FUGU points
     .balance
@@ -26,6 +35,24 @@ const display_address = computed(() => address.value.slice(0, 3) + "..." + addre
 </template>
 
 <style module lang="scss">
+.disconnect-button {
+  position: absolute;
+  width: 160px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffffa0;
+  text-align: center;
+  border: 1px solid #000000;
+  box-shadow: 2px 4px 4px 0px #00000040;
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 20px;
+}
+
 .wallet {
   display: flex;
   flex-direction: column;
