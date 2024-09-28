@@ -2,7 +2,7 @@
 interface Bubble {
   image: string
   left: number
-  top: number
+  bottom: number
   speed: number
   size: number
 }
@@ -14,7 +14,6 @@ const bubbles = ref<Bubble[]>([])
 
 onMounted(() => {
   createBubbles()
-  animateBubbles()
 })
 
 function createBubbles() {
@@ -22,22 +21,11 @@ function createBubbles() {
     bubbles.value.push({
       image: bubble_images[Math.floor(Math.random() * bubble_images.length)],
       left: Math.random() * 100,
-      top: Math.random() * 100,
-      speed: Math.random() * (0.5 - 0.2) + 0.1,
+      bottom: -20,
+      speed: Math.random() * 5 + 5,
       size: Math.floor(Math.random() * (60 - 30 + 1)) + 30,
     })
   }
-}
-
-function animateBubbles() {
-  setInterval(() => {
-    bubbles.value.forEach((bubble) => {
-      bubble.top -= bubble.speed
-      if (bubble.top < -50) {
-        bubble.top = 100
-      }
-    })
-  }, 16)
 }
 
 function get_bubble_path(name: string) {
@@ -47,7 +35,7 @@ function get_bubble_path(name: string) {
 
 <template lang="pug">
 .bubble-container
-  .bubble(v-for="(bubble, index) in bubbles" :key="index" :style="{ left: `${bubble.left}%`, top: `${bubble.top}%`, width: `${bubble.size}px`, height: `${bubble.size}px` }")
+  .bubble(v-for="(bubble, index) in bubbles" :key="index" :style="{ left: `${bubble.left}%`, bottom: `${bubble.bottom}%`, width: `${bubble.size}px`, height: `${bubble.size}px`, animation: `vertical ${bubble.speed}s infinite linear, sideWays 4s ease-in-out infinite alternate` }")
     img(:src="get_bubble_path(bubble.image)" style="width: 70%;")
 </template>
 
@@ -80,6 +68,15 @@ function get_bubble_path(name: string) {
   }
   100% {
     margin-left: 20px;
+  }
+}
+
+@keyframes vertical {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-120vh);
   }
 }
 </style>
