@@ -22,7 +22,7 @@ const display_address = computed(() => address.value.slice(0, 3) + "..." + addre
       img(src="/public/small_fugu.png" style="width: 20px;")
       | 130000$F
     .coming-soon coming soon...
-    o-button.withdraw-button Withdraw
+    o-button.withdraw-button Windraft
 </template>
 
 <style module lang="scss">
