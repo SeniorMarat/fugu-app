@@ -28,7 +28,7 @@ async function disconnect() {
   .action-container
     .balance-label Balance FUGU points
     .balance
-      img(src="/public/small_fugu.png" style="width: 20px;")
+      img(src="/public/small_fugu.png" style="width: 35px;")
       | 130000$F
     .coming-soon coming soon...
     o-button.withdraw-button Windraft
