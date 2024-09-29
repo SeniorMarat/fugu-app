@@ -19,9 +19,9 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
     .side-text Total amount: {{ friends.length > 0 ? friends.map(f => f.amount).reduce((a, b) => a + b) : 0 }}
     .label(style="font-size: 24px") Friend list
     .side-text Refs invited: {{ friends.length }}
-  pad(style="width: 95%; min-height: 205px; justify-content: flex-start; padding-top: 20px;")
+  pad(style="width: 95%; justify-content: flex-start; min-height: 260px; padding-top: 10px;")
     div(v-if="friends.length > 0" style="width: 100%")
-      div(v-for="(friend, index) in friends" :key="index" style="display: flex; flex-direction: column; align-items: center; width: 100%; height: 45px")
+      div(v-for="(friend, index) in friends" :key="index" style="display: flex; flex-direction: column; align-items: center; width: 100%; height: 45px" @click="friends.splice(index, 1)")
         div(style="display: flex; flex-direction: row; align-items: center; width: 100%; margin-left: 20px; margin-bottom: 10px;")
           img(src="/public/small_fugu.png" style="width: 20px; margin-right: 10px;")
           .friend-name {{ friend.name }}
@@ -45,6 +45,7 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
   align-items: center;
   width: 100vw;
   margin-top: 10vh;
+  overflow: hidden;
 }
 
 .label {
