@@ -6,7 +6,7 @@
 div(style="display: flex; flex-direction:column; justify-content: center; align-items: center; width: 100vw; padding-top: 5vh;")
   .title Fortune
   pad(style="width: 180px; height: 160px")
-    img.fortune-circle(src="/public/div.loader.png" style="width: 170px;")
+    img.fortune-circle(src="/public/div.loader.png" style="width: 170px;" @click="() => $router.push('/fortune')")
   .title Tasks
   task(v-for="i in 5" :key="i" label="Make a TON transaction" :value="2000")
 </template>
