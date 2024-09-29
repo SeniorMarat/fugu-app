@@ -1,5 +1,11 @@
 <script setup lang="ts">
-
+const tasks = ref([
+  { label: "make a TON transaction", type: "transaction", reward: 2000 },
+  { label: "Subscribe to channel", type: "subscribe", reward: 250 },
+  { label: "Subscribe to FUGU Twitter", type: "subscribe", reward: 150 },
+  { label: "Invite 10 friends", type: "invite", reward: 1000 },
+  { label: "Add 🐡 emoji to your nickname", type: "nickname", reward: 1000 },
+])
 </script>
 
 <template lang="pug">
@@ -8,7 +14,7 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
   pad(style="width: 180px; height: 160px")
     img.fortune-circle(src="/public/div.loader.png" style="width: 170px;" @click="() => $router.push('/fortune')")
   .title Tasks
-  task(v-for="i in 5" :key="i" label="Make a TON transaction" :value="2000")
+  task(v-for="(task, index) in tasks" :key="index" :label="task.label" :value="task.reward")
 </template>
 
 <style module lang="scss">
