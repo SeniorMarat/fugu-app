@@ -26,10 +26,10 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
           img(src="/public/small_fugu.png" style="width: 20px; margin-right: 10px;")
           .friend-name {{ friend.name }}
         img(src="/public/separator.svg" class="icon" style="width: 100%; margin-left: 10px; margin-right: 10px;")
-    div(v-if="friends.length === 0")
+    div(v-if="friends.length === 0" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;")
       .empty-text Looks like
       .empty-text you haven't invited anyone yet
-      img(src="/public/angry-fugu.png" style="width: 300px; margin-bottom: -30px; margin-top: -50px;")
+      img(src="/public/angry-fugu.png" style="width: 300px;")
   div(style="display: flex; flex-direction: row; justify-content: space-between; width: 90%; margin-top: 5vh;")
     o-button.action-button Invite
       img(class="icon" src="/public/share.svg" style="width: 32px; margin-bottom: -5px; margin-left: 10px;")
