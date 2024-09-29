@@ -14,7 +14,7 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
   pad(style="width: 180px; height: 160px")
     img.fortune-circle(src="/public/div.loader.png" style="width: 170px;" @click="() => $router.push('/fortune')")
   .title Tasks
-  task(v-for="(task, index) in tasks" :key="index" :label="task.label" :value="task.reward")
+  task(v-for="(task, index) in tasks" :key="index" :label="task.label" :value="task.reward" :type="task.type")
 </template>
 
 <style module lang="scss">
