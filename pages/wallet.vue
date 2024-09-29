@@ -25,7 +25,7 @@ async function disconnect() {
       img(class="icon" src="/public/wallet.svg" style="width: 50px;")
       | Connect Wallet
 
-  .action-container
+  pad(style="width: 360px; height: 385px")
     .balance-label Balance FUGU points
     .balance
       img(src="/public/small_fugu.png" style="width: 35px;")
@@ -99,18 +99,6 @@ async function disconnect() {
   border-radius: 20px;
 }
 
-.action-container {
-  width: 360px;
-  height: 385px;
-  border-radius: 10px;
-  background: #ffffff33;
-  border: 2px solid #ffffff4d;
-  box-shadow: 0px 4px 4px 0px #00000040;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .balance-label {
   color: #fff;
   font-family: "Inter";
@@ -118,7 +106,7 @@ async function disconnect() {
   paint-order: stroke fill;
   font-weight: 700;
   font-size: 20px;
-  margin-top: 18px;
+  margin-top: -100px;
 }
 
 .balance {
