@@ -44,7 +44,7 @@ import { OButton } from "@oruga-ui/oruga-next"
   z-index: 1;
   position: fixed;
   bottom: 96px;
-  background-color: #fb7013;
+  background-color: #f5308f;
   color: #fff;
   -webkit-text-stroke: 1px #000;
   font-family: "Jua", sans-serif;

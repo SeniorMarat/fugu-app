@@ -30,7 +30,7 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
       .empty-text Looks like
       .empty-text you haven't invited anyone yet
       img(src="/public/angry-fugu.png" style="width: 300px;")
-  div(style="display: flex; flex-direction: row; justify-content: space-between; width: 90%; margin-top: 5vh;")
+  div(style="display: flex; flex-direction: row; justify-content: space-between; width: 90%; margin-top: 3vh;")
     o-button.action-button Invite
       img(class="icon" src="/public/share.svg" style="width: 32px; margin-bottom: -5px; margin-left: 10px;")
     o-button.action-button(style="font-size: 24px") Copy link
