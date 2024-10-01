@@ -7,7 +7,7 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
     o-button.count-button(@click="() => $router.push('/shop')")
       img(class="icon" src="/public/plus-circle.svg" style="width: 35px; margin-left: 10px")
       div(style="position: absolute; left: 50%; transform: translateX(-50%);") 2
-    img.wheel(src="/public/big-wheel.png")
+    img.wheel(src="/public/big-wheel2.png")
   o-button.spin-button Spin
 </template>
 
@@ -33,7 +33,7 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
 
 .wheel {
   width: 100%;
-  animation: spin 2s infinite linear;
+  animation: spin 5s infinite linear;
 }
 
 @keyframes spin {
@@ -50,7 +50,7 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
   height: 56px;
   border-radius: 20px;
   background: #f5308f;
-  border: 1px solid #000000;
+  border: px solid #000000;
   box-shadow: 0px 4px 4px 0px #00000040;
   font-family: "Jua", sans-serif;
   font-size: 32px;
