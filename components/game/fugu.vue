@@ -44,7 +44,7 @@ function update() {
 <template lang="pug">
 .fugu(:style="{ left: `${x}px`, top: `${y}px` }")
   // Add your pufferfish graphics here
-  img(src="/public/angry-fugu.png" style="width: 100%;")
+  img(src="/public/angry-fugu.png" style="width: 100%; transform: scaleX(-1);")
 </template>
 
 <style module lang="scss">
