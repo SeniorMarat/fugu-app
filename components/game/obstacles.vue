@@ -2,8 +2,8 @@
 import { onMounted, ref } from "vue"
 
 const pipeWidth = 80
-const pipeHeight = 500
 const pipeGap = 150
+const pipeHeight = (document.documentElement.clientHeight / 2) - pipeGap
 const pipeSpeed = 3
 const pipeX = ref(0)
 
@@ -12,7 +12,7 @@ onMounted(() => {
   setInterval(() => {
     pipeX.value -= pipeSpeed
     if (pipeX.value < -pipeWidth) {
-      pipeX.value = window.innerWidth
+      pipeX.value = window.innerWidth - pipeWidth / 2
     }
   }, 16) // 16ms = 60fps
 })
