@@ -8,7 +8,7 @@ import { OButton } from "@oruga-ui/oruga-next"
   div(style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%;")
     nav-button(icon="shop" label="shop" rounded="right" path="/shop")
     nav-button(icon="wallet" label="wallet" rounded="left" path="/wallet")
-  img(src="/public/small_fugu.png" style="width: 100%;")
+  img(src="/public/small_fugu.png" style="width: 100%;").fugu
   o-button.play(@click="() => $router.push('/game')") Play
 </template>
 
