@@ -15,6 +15,8 @@ onMounted(() => {
     update()
   }, 16)
   document.addEventListener("touchstart", () => is_held.value = true)
+  document.addEventListener("mousedown", () => is_held.value = true)
+  document.addEventListener("mouseup", () => is_held.value = false)
   document.addEventListener("touchend", () => is_held.value = false)
 })
 
@@ -27,6 +29,14 @@ function update() {
   }
   if (velocity.value > max_speed) {
     velocity.value = max_speed
+  }
+  if (y.value < 0) {
+    y.value = 0
+    velocity.value = 0
+  }
+  if (y.value > document.documentElement.clientHeight - 50) {
+    y.value = document.documentElement.clientHeight - 51
+    velocity.value = 0
   }
 }
 </script>
