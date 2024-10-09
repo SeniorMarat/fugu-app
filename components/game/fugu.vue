@@ -3,11 +3,12 @@ Component for handling bird ans it's position
 -->
 
 <script setup lang="ts">
-const x = ref(0) // initial x position
+const x = ref(100) // initial x position
 const y = ref(0) // initial y position
 const velocity = ref(0) // initial velocity
-const gravity = ref(0.5) // gravity constant
+const gravity = ref(0.3) // gravity constant
 const is_held = ref(false)
+const max_speed = 10
 
 onMounted(() => {
   setInterval(() => {
@@ -20,9 +21,12 @@ onMounted(() => {
 function update() {
   velocity.value += gravity.value
   y.value += velocity.value
-  velocity.value -= is_held.value ? 1 : 0
-  if (velocity.value > 10) {
-    velocity.value = 10
+  velocity.value -= is_held.value ? 0.8 : 0
+  if (velocity.value < -max_speed) {
+    velocity.value = -max_speed
+  }
+  if (velocity.value > max_speed) {
+    velocity.value = max_speed
   }
 }
 </script>
