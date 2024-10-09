@@ -8,9 +8,8 @@ import { OButton } from "@oruga-ui/oruga-next"
   div(style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%;")
     nav-button(icon="shop" label="shop" rounded="right" path="/shop")
     nav-button(icon="wallet" label="wallet" rounded="left" path="/wallet")
-  div(@click="() => $router.push('/game')").fugu
-    img(src="/public/small_fugu.png" style="width: 100%;")
-  o-button.feed Feed
+  img(src="/public/small_fugu.png" style="width: 100%;")
+  o-button.play(@click="() => $router.push('/game')") Play
 </template>
 
 <style module lang="scss">
@@ -39,7 +38,7 @@ import { OButton } from "@oruga-ui/oruga-next"
   }
 }
 
-.feed {
+.play {
   width: 80%;
   z-index: 1;
   position: fixed;
