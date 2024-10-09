@@ -4,7 +4,7 @@ import { onMounted, ref } from "vue"
 const pipeWidth = 80
 const pipeHeight = 500
 const pipeGap = 150
-const pipeSpeed = 1
+const pipeSpeed = 3
 const pipeX = ref(0)
 
 onMounted(() => {
