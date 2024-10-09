@@ -48,23 +48,23 @@ function update() {
     velocity.value = 0
   }
   if (is_held.value) {
-    size.value += 10
-    x.value -= 5
-    y.value -= 5
+    size.value += 7
+    x.value -= 3.5
+    y.value -= 3.5
   } else {
-    size.value -= 10
-    x.value += 5
-    y.value += 5
+    size.value -= 7
+    x.value += 3.5
+    y.value += 3.5
   }
   if (size.value > 100) {
     size.value = 100
-    x.value += 5
-    y.value += 5
+    x.value += 3.5
+    y.value += 3.5
   }
   if (size.value < 50) {
     size.value = 50
-    x.value -= 5
-    y.value -= 5
+    x.value -= 3.5
+    y.value -= 3.5
   }
 }
 </script>
