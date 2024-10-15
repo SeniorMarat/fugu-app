@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { useWebApp } = await import("vue-tg")
 const { initDataUnsafe } = useWebApp()
-const username = computed(() => initDataUnsafe.user?.username.toUpperCase() || "SUNDVR")
+const username = computed(() => initDataUnsafe.user?.username.toUpperCase() || "username")
 </script>
 
 <template lang="pug">

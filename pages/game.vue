@@ -42,8 +42,11 @@ onMounted(() => {
   }, 2500)
 })
 
+const max_score = ref(0)
+
 watch(is_colliding, () => {
   if (is_colliding.value) {
+    max_score.value = Math.max(max_score.value, score.value)
     score.value = 0
   }
 })
@@ -53,7 +56,7 @@ watch(is_colliding, () => {
 gameScore(:score="score" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);")
 obstacles(ref="obstacles_ref")
 fugu(ref="fugu_ref")
-h5(style="color: #fff; font-size: 50px;font-family: 'Jua', sans-serif; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)") {{ is_colliding }}
+h5(style="color: #fff; font-size: 50px;font-family: 'Jua', sans-serif; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)") {{ max_score }}
 </template>
 
 <style module lang="scss">
