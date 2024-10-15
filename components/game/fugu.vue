@@ -67,11 +67,12 @@ function update() {
     y.value -= 3.5
   }
 }
+
+defineExpose({ x, y, size })
 </script>
 
 <template lang="pug">
 .fugu(:style="{ left: `${x}px`, top: `${y}px`, width: `${size}px`, height: `${size}px` }")
-  // Add your pufferfish graphics here
   img(src="/public/angry-fugu.png" style="width: 100%; transform: scaleX(-1);")
 </template>
 

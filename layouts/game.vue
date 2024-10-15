@@ -4,7 +4,7 @@ import { OButton } from "@oruga-ui/oruga-next"
 
 <template lang="pug">
 .layout
-  o-button(style="position: absolute" @click="() => $router.push('/')") Back
+  o-button(style="position: absolute" @click.stop.prevent="() => $router.push('/')") Back
   .page: nuxt-page
 </template>
 

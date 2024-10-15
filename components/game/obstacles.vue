@@ -17,27 +17,7 @@ onMounted(() => {
   }, 16) // 16ms = 60fps
 })
 
-// collision detection
-function checkCollision(fishX: number, fishY: number) {
-  const pipeLeft = pipeX.value
-  const pipeRight = pipeLeft + pipeWidth
-  const pipeTop = 0
-  const pipeBottom = pipeHeight
-  const pipeGapTop = pipeGap
-  const pipeGapBottom = pipeGap + pipeHeight
-
-  if (
-    (fishX + 50 > pipeLeft && fishX < pipeRight) // fish overlaps pipe horizontally
-    && ((fishY < pipeTop || fishY + 50 > pipeBottom) // fish overlaps pipe vertically (top)
-    && (fishY < pipeGapTop || fishY + 50 > pipeGapBottom)) // fish overlaps pipe vertically (bottom)
-  ) {
-    console.log("Collision detected!")
-    // add scoring logic here
-  }
-}
-
-// expose checkCollision function to parent component
-defineExpose({ checkCollision })
+defineExpose({ pipeX, pipeHeight, pipeGap, pipeWidth })
 </script>
 
 <template lang="pug">
