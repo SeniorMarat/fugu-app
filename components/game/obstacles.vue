@@ -3,9 +3,10 @@ import { onMounted, ref } from "vue"
 
 const pipeWidth = 80
 const pipeGap = 150
-const pipeHeight = (window.outerHeight / 2) - pipeGap / 2
+const pipeHeight = ref((window.outerHeight / 2) - pipeGap / 2)
 const pipeSpeed = 2.5
 const pipeX = ref(0)
+const innerHeight = ref(window.innerHeight)
 
 onMounted(() => {
   // animate pipe movement
@@ -13,6 +14,7 @@ onMounted(() => {
     pipeX.value -= pipeSpeed
     if (pipeX.value < -pipeWidth) {
       pipeX.value = window.innerWidth - pipeWidth / 2
+      pipeHeight.value = Math.random() * (window.outerHeight / 2)
     }
   }, 16) // 16ms = 60fps
 })
@@ -23,7 +25,7 @@ defineExpose({ pipeX, pipeHeight, pipeGap, pipeWidth })
 <template lang="pug">
 .obstacle-container
   .pipe-top(:style="{ height: `${pipeHeight}px`, left: `${pipeX}px` }")
-  .pipe-bottom(:style="{ height: `${pipeHeight}px`, left: `${pipeX}px`, top: `${pipeGap + pipeHeight}px` }")
+  .pipe-bottom(:style="{ height: `${innerHeight - (pipeHeight + pipeGap)}px`, left: `${pipeX}px`, top: `${pipeGap + pipeHeight}px` }")
 </template>
 
 <style module lang="scss">
