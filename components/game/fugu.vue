@@ -9,7 +9,7 @@ const size = ref(25)
 const velocity = ref(0) // initial velocity
 const gravity = ref(0.3) // gravity constant
 const is_held = ref(false)
-const max_speed = 10
+const max_speed = 7
 
 onMounted(() => {
   setInterval(() => {
@@ -32,7 +32,7 @@ onMounted(() => {
 function update() {
   velocity.value += gravity.value
   y.value += velocity.value
-  velocity.value -= is_held.value ? 0.8 : 0
+  velocity.value -= is_held.value ? 0.9 : 0
   if (velocity.value < -max_speed) {
     velocity.value = -max_speed
   }
