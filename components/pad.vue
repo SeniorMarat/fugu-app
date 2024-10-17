@@ -6,7 +6,7 @@
 <style lang="scss">
 .pad {
   border-radius: 20px;
-  background: #ffffff33;
+  background-color: #ffffff7c;
   border: 2px solid #ffffff4d;
   box-shadow: 2px 4px 4px 0px #00000040;
   display: flex;

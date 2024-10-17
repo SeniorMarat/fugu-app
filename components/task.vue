@@ -19,7 +19,7 @@ const props = defineProps<{ label: string, value: number, type: "nickname" | "in
 <style module lang="scss">
 .task {
   position: relative;
-  background-color: #ffffff33;
+  background-color: #ffffff7c;
   width: 350px;
   height: 60px;
   margin-bottom: 20px;
