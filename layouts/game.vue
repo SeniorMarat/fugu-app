@@ -10,7 +10,7 @@ import { OButton } from "@oruga-ui/oruga-next"
 
 <style module lang="scss">
 body {
-  background: rgb(6, 215, 215);
+  background: rgba(0, 142, 255, 1);
   overflow: hidden;
 }
 </style>

@@ -11,8 +11,7 @@
 
 <style module lang="scss">
 body {
-  background: linear-gradient(180deg, rgb(35, 197, 197) 0%, rgba(40, 164, 227, 1) 42%, rgb(53, 75, 222) 100%);
-  animation: gradient 10s infinite linear;
+  background: rgba(0, 142, 255, 1);
   background-size: 400%;
   overflow: hidden;
 }

@@ -11,6 +11,8 @@ const gravity = ref(0.3) // gravity constant
 const is_held = ref(false)
 const max_speed = 7
 
+const shrink_speed = 0.7
+
 onMounted(() => {
   setInterval(() => {
     update()
@@ -48,23 +50,23 @@ function update() {
     velocity.value = 0
   }
   if (is_held.value) {
-    size.value += 7
-    x.value -= 3.5
-    y.value -= 3.5
+    size.value += shrink_speed
+    x.value -= shrink_speed / 2
+    y.value -= shrink_speed / 2
   } else {
-    size.value -= 7
-    x.value += 3.5
-    y.value += 3.5
+    size.value -= shrink_speed
+    x.value += shrink_speed / 2
+    y.value += shrink_speed / 2
   }
-  if (size.value > 100) {
-    size.value = 100
-    x.value += 3.5
-    y.value += 3.5
+  if (size.value > 75) {
+    size.value = 75
+    x.value += shrink_speed / 2
+    y.value += shrink_speed / 2
   }
   if (size.value < 50) {
     size.value = 50
-    x.value -= 3.5
-    y.value -= 3.5
+    x.value -= shrink_speed / 2
+    y.value -= shrink_speed / 2
   }
 }
 

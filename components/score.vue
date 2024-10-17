@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { useWebApp } = await import("vue-tg")
 const { initDataUnsafe } = useWebApp()
-const username = computed(() => initDataUnsafe.user?.username.toUpperCase() || "username")
+const username = computed(() => initDataUnsafe.user?.username.toUpperCase() || "USERNAME")
 </script>
 
 <template lang="pug">
@@ -12,13 +12,14 @@ const username = computed(() => initDataUnsafe.user?.username.toUpperCase() || "
 
 <style module lang="scss">
 .score {
+  padding-top: 15px;
   text-align: center;
   font-family: "Jua", sans-serif;
   font-weight: 400;
 }
 .username {
   color: #fff;
-  font-size: 20px;
+  font-size: 23px;
   -webkit-text-stroke: 0.5px #000;
   text-shadow: 0px 4px 4px #00000040;
   padding-top: 15px;
@@ -26,9 +27,9 @@ const username = computed(() => initDataUnsafe.user?.username.toUpperCase() || "
 .value {
   color: #ffc422;
   font-size: 64px;
-  -webkit-text-stroke: 1px #000;
+  -webkit-text-stroke: 0.7px #000;
   text-shadow: 0px 4px 4px #00000040;
-  margin-top: -10px;
+  margin-top: -4px;
 }
 .label {
   color: #f5f5f5;
