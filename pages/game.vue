@@ -4,6 +4,7 @@ import { OButton, OModal } from "@oruga-ui/oruga-next"
 import fugu from "~/components/game/fugu.vue"
 import gameScore from "~/components/game/game-score.vue"
 import obstacles from "~/components/game/obstacles.vue"
+import Walls from "~/components/game/walls.vue"
 import { useAdsgram } from "~/composables/useAdsgram"
 import type { ShowPromiseResult } from "~/types/adsgram"
 
@@ -92,6 +93,7 @@ watch(is_colliding, () => {
 .page
   gameScore(:score="score")
   obstacles(ref="obstacles_ref" :is-paused="is_game_paused")
+  walls(:is-paused="is_game_paused")
   fugu(ref="fugu_ref" :is-paused="is_game_paused")
   o-modal.modal(v-model:active="show_modal")
     div(style="display: flex; flex-direction: column; align-items: center; min-width: 100vw; min-height: 100vh;")
