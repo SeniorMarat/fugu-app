@@ -5,7 +5,7 @@ Component for handling bird ans it's position
 <script setup lang="ts">
 const x = ref(100) // initial x position
 const y = ref(window.innerHeight / 2) // initial y position
-const size = ref(50)
+const size = ref(75)
 const y_velocity = ref(0) // initial y_velocity
 const gravity = ref(0.3) // gravity constant
 const x_velocity = ref(3) // initial x velocity
