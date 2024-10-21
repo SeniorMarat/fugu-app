@@ -13,7 +13,6 @@ interface UseAdsgramReturn {
 }
 
 export function useAdsgram({ blockId, onReward, onError }: UseAdsgramParams): UseAdsgramReturn {
-  console.log("showAd")
   const AdControllerRef = ref<AdController | undefined>(undefined)
 
   onMounted(() => {

@@ -20,6 +20,7 @@ function onReward() {
   max_score.value = max_score.value * 2
 }
 function onError(result: ShowPromiseResult) {
+  // eslint-disable-next-line no-console
   console.log(JSON.stringify(result, null, 4))
 }
 

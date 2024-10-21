@@ -26,16 +26,12 @@ onMounted(() => {
       update()
     }
   }, 16)
-  document.addEventListener("touchstart", (e) => {
-    if (e.touches[0].clientY < window.innerHeight * 0.9) {
-      y_velocity.value = -6 // apply a fixed upward y_velocity
-    }
+  document.addEventListener("touchstart", () => {
+    y_velocity.value = -6 // apply a fixed upward y_velocity
   })
   if (!isMobile) {
-    document.addEventListener("mousedown", (e) => {
-      if (e.clientY < window.innerHeight * 0.9) {
-        y_velocity.value = -6 // apply a fixed upward y_velocity
-      }
+    document.addEventListener("mousedown", () => {
+      y_velocity.value = -6 // apply a fixed upward y_velocity
     })
   }
 })
