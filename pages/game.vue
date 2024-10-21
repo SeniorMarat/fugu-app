@@ -33,8 +33,8 @@ const is_colliding = computed(() => {
     for (const hitbox of hitboxes) {
       if (
         Math.abs(hitbox.x - fugu_ref.value.x) < (fugu_ref.value.size + hitbox.width) / 2
-        && fugu_ref.value.y + fugu_ref.value.size > hitbox.y
-        && fugu_ref.value.y < hitbox.y + hitbox.height
+        && fugu_ref.value.y + fugu_ref.value.size / 2 > hitbox.y
+        && fugu_ref.value.y + fugu_ref.value.size / 2 < hitbox.y + hitbox.height
       ) {
         return true
       }

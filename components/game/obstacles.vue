@@ -41,7 +41,7 @@ function get_obstacle_path(name: string) {
 const hitboxes = computed(() => {
   return obstacles.value.map((obstacle) => {
     return {
-      x: obstacle.value.type === "left" ? obstacle.value.width : 0,
+      x: obstacle.value.type === "right" ? window.innerWidth : 0,
       y: obstacle.value.y,
       height: obstacle.value.height,
       width: obstacle.value.width,
