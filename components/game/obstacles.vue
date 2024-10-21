@@ -11,25 +11,31 @@ interface Obstacle {
   image: string
 }
 
-const green_coral = ref<Obstacle>({ y: 0, height: 100, width: 25, type: "left", image: "coral1.png" })
-const blue_coral = ref<Obstacle>({ y: 200, height: 100, width: 25, type: "right", image: "coral2.png" })
-const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 25, type: "left", image: "coral3.png" })
+const green_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "left", image: "seaweed.jpeg" })
+const blue_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "right", image: "seaweed.jpeg" })
+const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "left", image: "seaweed.jpeg" })
 
-const obstacles = ref([red_coral, blue_coral])
+const obstacles = ref([green_coral])
 onMounted(() => {
   setInterval(() => {
     if (!props.isPaused) {
       for (let i = obstacles.value.length - 1; i >= 0; i--) {
         obstacles.value[i].value.y += obstacle_speed
         if (obstacles.value[i].value.y > window.innerHeight + obstacles.value[i].value.height) {
-          const newObstacle = get_random_obstacle()
-          newObstacle.value.y = -obstacles.value[i].value.height
           obstacles.value.splice(i, 1)
-          obstacles.value.push(newObstacle)
         }
       }
+    } else {
+      obstacles.value = []
     }
   }, 16)
+  setInterval(() => {
+    if (!props.isPaused) {
+      const newObstacle = get_random_obstacle()
+      newObstacle.value.y = -100
+      obstacles.value.push(newObstacle)
+    }
+  }, 1750)
 })
 
 function get_random_obstacle() {
@@ -60,9 +66,9 @@ defineExpose({ hitboxes })
 .obstacle-container
   .obstacle(v-for="(obstacle, index) in obstacles" :key="index")
     .left(v-if="obstacle.value.type === 'left'" :style="{ height: `${obstacle.value.height}px`, left: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
-      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ height: '100px', width: '25px' }")
+      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: `100%`, transform: 'scaleX(-1)' }")
     .right(v-if="obstacle.value.type === 'right'" :style="{ height: `${obstacle.value.height}px`, right: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
-      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ height: '100px', width: '25px' }")
+      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: `100%` }")
 </template>
 
 <style module lang="scss">
