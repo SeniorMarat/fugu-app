@@ -35,6 +35,13 @@ onMounted(() => {
     })
   }
 })
+watch(() => props.isPaused, (newValue, oldValue) => {
+  if (newValue === false && oldValue === true) {
+    x.value = 100 // reset x position to initial value
+    y.value = window.innerHeight / 2 // reset y position to initial value
+    y_velocity.value = 0 // reset y_velocity to initial value
+  }
+})
 
 function update() {
   // change y position
