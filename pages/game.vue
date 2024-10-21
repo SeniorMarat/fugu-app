@@ -78,11 +78,15 @@ watch(is_colliding, () => {
   gameScore(:score="score")
   obstacles(ref="obstacles_ref" :is-paused="is_game_paused")
   fugu(ref="fugu_ref" :is-paused="is_game_paused")
-  h5(style="color: #fff; font-size: 50px;font-family: 'Jua', sans-serif; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)") {{ max_score }}
   o-modal.modal(v-model:active="show_modal")
-    pad(style="width: 250px")
-      p(style="text-align: center;")
-        o-button(@click="() => { show_modal = false; is_game_paused = false }") OK
+    div(style="display: flex; flex-direction: column; align-items: center; min-width: 100vw")
+      .game-over GAME OVER
+      pad(style="width: 90%")
+        div.description multiply profit
+        o-button.action-button(style="font-size: 24px") Watch ads
+      div(style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 90%; margin-top: 3vh;")
+        o-button.action-button(style="font-size: 24px; background: #3091FF;" tag="router-link" to="/") Menu
+        o-button.action-button(style="font-size: 24px" @click="is_game_paused = false; show_modal = false") Again
 </template>
 
 <style module lang="scss">
@@ -100,11 +104,53 @@ watch(is_colliding, () => {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(5px);
+}
+
+.game-over {
+  font-family: "Jua", sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  color: #ffffff;
+  -webkit-text-stroke: 3px #000000;
+}
+
+.description {
+  font-family: Inter;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36.31px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.action-button {
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  background: #f5308f;
+  border: 1px solid #fff;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  font-family: "Jua", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 </style>

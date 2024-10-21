@@ -16,9 +16,15 @@ const blue_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "right", 
 const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "left", image: "seaweed.jpeg" })
 
 const obstacles = ref([green_coral])
+let was_paused = false
+
 onMounted(() => {
   setInterval(() => {
     if (!props.isPaused) {
+      if (was_paused) {
+        obstacles.value = []
+        was_paused = false
+      }
       for (let i = obstacles.value.length - 1; i >= 0; i--) {
         obstacles.value[i].value.y += obstacle_speed
         if (obstacles.value[i].value.y > window.innerHeight + obstacles.value[i].value.height) {
@@ -26,7 +32,7 @@ onMounted(() => {
         }
       }
     } else {
-      obstacles.value = []
+      was_paused = true
     }
   }, 16)
   setInterval(() => {
