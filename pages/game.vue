@@ -14,12 +14,10 @@ definePageMeta({
 const score = ref(0)
 const max_score = ref(0)
 const is_game_paused = ref(false)
+const show_modal = ref(false)
 
 function onReward() {
-  score.value = max_score.value * 2
-  max_score.value = 0
-  is_game_paused.value = false
-  console.log("reward")
+  max_score.value = max_score.value * 2
 }
 function onError(result: ShowPromiseResult) {
   console.log(JSON.stringify(result, null, 4))
@@ -62,8 +60,6 @@ const is_colliding = computed(() => {
   }
   return false
 })
-
-const show_modal = ref(false)
 
 watch(is_colliding, (new_value) => {
   if (new_value) {
