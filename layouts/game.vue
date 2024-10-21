@@ -10,6 +10,13 @@ import { OButton } from "@oruga-ui/oruga-next"
 </template>
 
 <style module lang="scss">
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 body {
   background: rgba(0, 142, 255, 1);
   background-size: 400%;

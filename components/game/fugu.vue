@@ -18,6 +18,8 @@ const transform = computed(() => {
   return x_velocity.value < 0 ? "scaleX(1)" : "scaleX(-1)"
 })
 
+const isMobile = "ontouchstart" in window
+
 onMounted(() => {
   setInterval(() => {
     if (!props.isPaused) {
@@ -29,11 +31,13 @@ onMounted(() => {
       y_velocity.value = -6 // apply a fixed upward y_velocity
     }
   })
-  document.addEventListener("mousedown", (e) => {
-    if (e.clientY < window.innerHeight * 0.9) {
-      y_velocity.value = -6 // apply a fixed upward y_velocity
-    }
-  })
+  if (!isMobile) {
+    document.addEventListener("mousedown", (e) => {
+      if (e.clientY < window.innerHeight * 0.9) {
+        y_velocity.value = -6 // apply a fixed upward y_velocity
+      }
+    })
+  }
 })
 
 function update() {
