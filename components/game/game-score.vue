@@ -8,6 +8,8 @@ const props = defineProps<{ score: number }>()
 
 <style module lang="scss">
 .game-score {
+  padding-top: 15px;
+  text-align: center;
   font-family: "Jua", sans-serif;
   font-weight: 400;
   font-size: 40px;

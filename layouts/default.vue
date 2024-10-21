@@ -33,16 +33,4 @@ body {
   flex: 1;
   overflow-y: auto;
 }
-
-@keyframes gradient {
-  0% {
-    background-position: 80% 0%;
-  }
-  50% {
-    background-position: 20% 100%;
-  }
-  100% {
-    background-position: 80% 0%;
-  }
-}
 </style>

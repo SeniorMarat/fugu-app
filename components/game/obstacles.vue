@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const props = defineProps<{ isPaused: boolean }>()
+
 const obstacle_speed = 2.5
 
 interface Obstacle {
@@ -16,13 +18,15 @@ const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 25, type: "left", im
 const obstacles = ref([red_coral, blue_coral])
 onMounted(() => {
   setInterval(() => {
-    for (let i = obstacles.value.length - 1; i >= 0; i--) {
-      obstacles.value[i].value.y += obstacle_speed
-      if (obstacles.value[i].value.y > window.innerHeight + obstacles.value[i].value.height) {
-        const newObstacle = get_random_obstacle()
-        newObstacle.value.y = -obstacles.value[i].value.height
-        obstacles.value.splice(i, 1)
-        obstacles.value.push(newObstacle)
+    if (!props.isPaused) {
+      for (let i = obstacles.value.length - 1; i >= 0; i--) {
+        obstacles.value[i].value.y += obstacle_speed
+        if (obstacles.value[i].value.y > window.innerHeight + obstacles.value[i].value.height) {
+          const newObstacle = get_random_obstacle()
+          newObstacle.value.y = -obstacles.value[i].value.height
+          obstacles.value.splice(i, 1)
+          obstacles.value.push(newObstacle)
+        }
       }
     }
   }, 16)
@@ -53,17 +57,17 @@ defineExpose({ hitboxes })
 </script>
 
 <template lang="pug">
-.obstacle-container(v-for="(obstacle, index) in obstacles" :key="index")
-  .left(v-if="obstacle.value.type === 'left'" :style="{ height: `${obstacle.value.height}px`, left: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
-    img(:src="get_obstacle_path(obstacle.value.image)" :style="{ height: '100px', width: '25px' }")
-  .right(v-if="obstacle.value.type === 'right'" :style="{ height: `${obstacle.value.height}px`, right: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
-    img(:src="get_obstacle_path(obstacle.value.image)" :style="{ height: '100px', width: '25px' }")
+.obstacle-container
+  .obstacle(v-for="(obstacle, index) in obstacles" :key="index")
+    .left(v-if="obstacle.value.type === 'left'" :style="{ height: `${obstacle.value.height}px`, left: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
+      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ height: '100px', width: '25px' }")
+    .right(v-if="obstacle.value.type === 'right'" :style="{ height: `${obstacle.value.height}px`, right: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
+      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ height: '100px', width: '25px' }")
 </template>
 
 <style module lang="scss">
   .obstacle-container {
-  position: absolute;
-  width: 100%;
+  min-width: 100%;
   height: 100vh;
 }
 

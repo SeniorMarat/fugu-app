@@ -3,6 +3,10 @@ Component for handling bird ans it's position
 -->
 
 <script setup lang="ts">
+const props = defineProps<{
+  isPaused: boolean
+}>()
+
 const x = ref(100) // initial x position
 const y = ref(window.innerHeight / 2) // initial y position
 const size = ref(75)
@@ -16,7 +20,9 @@ const transform = computed(() => {
 
 onMounted(() => {
   setInterval(() => {
-    update()
+    if (!props.isPaused) {
+      update()
+    }
   }, 16)
   document.addEventListener("touchstart", (e) => {
     if (e.touches[0].clientY < window.innerHeight * 0.9) {
