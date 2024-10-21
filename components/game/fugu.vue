@@ -52,16 +52,6 @@ function update() {
     y_velocity.value = max_velocity
   }
 
-  // y position out of bounds
-  if (y.value < 0) {
-    y.value = 0
-    y_velocity.value = 0
-  }
-  if (y.value > document.documentElement.clientHeight - 50) {
-    y.value = document.documentElement.clientHeight - 51
-    y_velocity.value = 0
-  }
-
   // x position out of bounds
   if (x.value < 0) {
     x.value = 0

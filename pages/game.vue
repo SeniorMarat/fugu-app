@@ -58,6 +58,9 @@ const is_colliding = computed(() => {
         return true
       }
     }
+    if (fugu_ref.value.y + fugu_ref.value.size > window.innerHeight || fugu_ref.value.y < 0) {
+      return true
+    }
   }
   return false
 })
