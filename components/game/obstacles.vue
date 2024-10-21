@@ -11,9 +11,9 @@ interface Obstacle {
   image: string
 }
 
-const green_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "left", image: "coral1.png" })
-const blue_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "right", image: "coral2.png" })
-const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "left", image: "coral3.png" })
+const green_coral = ref<Obstacle>({ y: 0, height: 200, width: 100, type: "left", image: "coral1.png" })
+const blue_coral = ref<Obstacle>({ y: 0, height: 200, width: 100, type: "right", image: "coral2.png" })
+const red_coral = ref<Obstacle>({ y: 0, height: 200, width: 100, type: "left", image: "coral3.png" })
 
 const obstacles = ref([green_coral])
 let was_paused = false
