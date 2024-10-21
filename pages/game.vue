@@ -1,42 +1,60 @@
 <script setup lang="ts">
 import { OButton, OModal } from "@oruga-ui/oruga-next"
 
-import Fugu from "~/components/game/fugu.vue"
+import fugu from "~/components/game/fugu.vue"
 import gameScore from "~/components/game/game-score.vue"
-import Obstacles from "~/components/game/obstacles.vue"
+import obstacles from "~/components/game/obstacles.vue"
+import { useAdsgram } from "~/composables/useAdsgram"
+import type { ShowPromiseResult } from "~/types/adsgram"
 
 definePageMeta({
   layout: "game",
 })
 
-interface obstacles {
-  hitboxes: [
-    {
-      x: number
-      y: number
-      height: number
-      width: number
-    },
-  ]
+const score = ref(0)
+const max_score = ref(0)
+const is_game_paused = ref(false)
+
+function onReward() {
+  score.value = max_score.value * 2
+  max_score.value = 0
+  is_game_paused.value = false
+  console.log("reward")
+}
+function onError(result: ShowPromiseResult) {
+  console.log(JSON.stringify(result, null, 4))
 }
 
-interface fugu {
+const { showAd } = useAdsgram({ blockId: "1200", onReward, onError })
+
+interface Obstacles {
+  hitboxes:
+  {
+    x: number
+    y: number
+    height: number
+    width: number
+  }[]
+}
+
+interface Fugu {
   x: number
   y: number
   size: number
 }
-const score = ref(0)
 
-const obstacles_ref = ref<obstacles>()
-const fugu_ref = ref<fugu>()
+const obstacles_ref = ref<Obstacles>()
+const fugu_ref = ref<Fugu>()
 const is_colliding = computed(() => {
   if (obstacles_ref.value && fugu_ref.value) {
     const hitboxes = obstacles_ref.value.hitboxes
     for (const hitbox of hitboxes) {
       if (
-        Math.abs(hitbox.x - fugu_ref.value.x - fugu_ref.value.size / 2) < (fugu_ref.value.size + hitbox.width) / 2
+        Math.abs(hitbox.x - fugu_ref.value.x - fugu_ref.value.size / 2)
+        < (fugu_ref.value.size + hitbox.width) / 2
         && fugu_ref.value.y + fugu_ref.value.size / 2 > hitbox.y
-        && fugu_ref.value.y + fugu_ref.value.size / 2 < hitbox.y + hitbox.height / 2
+        && fugu_ref.value.y + fugu_ref.value.size / 2
+        < hitbox.y + hitbox.height / 2
       ) {
         return true
       }
@@ -45,7 +63,6 @@ const is_colliding = computed(() => {
   return false
 })
 
-const is_game_paused = ref(false)
 const show_modal = ref(false)
 
 watch(is_colliding, (new_value) => {
@@ -60,10 +77,8 @@ onMounted(() => {
     if (!is_game_paused.value) {
       score.value++
     }
-  }, 2500)
+  }, 1500)
 })
-
-const max_score = ref(0)
 
 watch(is_colliding, () => {
   if (is_colliding.value) {
@@ -71,10 +86,6 @@ watch(is_colliding, () => {
     score.value = 0
   }
 })
-
-function open_link() {
-  window.open("https://rickroll.it/rickroll.mp4", "_blank")
-}
 </script>
 
 <template lang="pug">
@@ -88,7 +99,7 @@ function open_link() {
       .score SCORE: {{ max_score }}
       pad(style="width: 90%")
         div.description multiply profit
-        o-button.action-button(style="font-size: 24px" @click="open_link") Watch ads
+        o-button.action-button(style="font-size: 24px" @click="showAd") Watch ads
       div(style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 90%; margin-top: 3vh;")
         o-button.action-button(style="font-size: 24px; background: #3091FF;" tag="router-link" to="/") Menu
         o-button.action-button(style="font-size: 24px" @click="max_score = 0; is_game_paused = false; show_modal = false") Again

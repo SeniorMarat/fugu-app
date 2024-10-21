@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/fugu-app/",
     head: {
-      script: [{ src: "https://telegram.org/js/telegram-web-app.js" }],
+      script: [{ src: "https://telegram.org/js/telegram-web-app.js" }, { src: "https://sad.adsgram.ai/js/sad.min.js" }],
     },
   },
 
