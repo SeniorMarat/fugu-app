@@ -83,14 +83,15 @@ function open_link() {
   obstacles(ref="obstacles_ref" :is-paused="is_game_paused")
   fugu(ref="fugu_ref" :is-paused="is_game_paused")
   o-modal.modal(v-model:active="show_modal")
-    div(style="display: flex; flex-direction: column; align-items: center; min-width: 100vw")
+    div(style="display: flex; flex-direction: column; align-items: center; min-width: 100vw; min-height: 100vh;")
       .game-over GAME OVER
+      .score SCORE: {{ max_score }}
       pad(style="width: 90%")
         div.description multiply profit
         o-button.action-button(style="font-size: 24px" @click="open_link") Watch ads
       div(style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 90%; margin-top: 3vh;")
         o-button.action-button(style="font-size: 24px; background: #3091FF;" tag="router-link" to="/") Menu
-        o-button.action-button(style="font-size: 24px" @click="is_game_paused = false; show_modal = false") Again
+        o-button.action-button(style="font-size: 24px" @click="max_score = 0; is_game_paused = false; show_modal = false") Again
 </template>
 
 <style module lang="scss">
@@ -117,17 +118,26 @@ function open_link() {
 }
 
 .game-over {
+  margin-top: 20px;
   font-family: "Jua", sans-serif;
   font-size: 48px;
   font-weight: 400;
   text-align: center;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
   color: #ffffff;
   -webkit-text-stroke: 3px #000000;
+}
+
+.score {
+  margin-top: 20px;
+  margin-bottom: 25vh;
+  font-family: "Jua", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+  -webkit-text-stroke: 1px #000000;
 }
 
 .description {
