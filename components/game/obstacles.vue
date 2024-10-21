@@ -11,9 +11,9 @@ interface Obstacle {
   image: string
 }
 
-const green_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "left", image: "seaweed.jpeg" })
-const blue_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "right", image: "seaweed.jpeg" })
-const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "left", image: "seaweed.jpeg" })
+const green_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "left", image: "coral1.png" })
+const blue_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "right", image: "coral2.png" })
+const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 50, type: "left", image: "coral3.png" })
 
 const obstacles = ref([green_coral])
 let was_paused = false
@@ -72,9 +72,9 @@ defineExpose({ hitboxes })
 .obstacle-container
   .obstacle(v-for="(obstacle, index) in obstacles" :key="index")
     .left(v-if="obstacle.value.type === 'left'" :style="{ height: `${obstacle.value.height}px`, left: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
-      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: `100%`, transform: 'scaleX(-1)' }")
+      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: `100%`, transform: 'rotate(90deg)' }")
     .right(v-if="obstacle.value.type === 'right'" :style="{ height: `${obstacle.value.height}px`, right: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
-      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: `100%` }")
+      img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: `100%`, transform: 'rotate(-90deg)' }")
 </template>
 
 <style module lang="scss">
