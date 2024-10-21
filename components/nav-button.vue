@@ -38,6 +38,7 @@ o-button.nav-button.all_rounded(:class="roundedClass" tag="router-link" :to="pro
   width: 61px;
   height: 61px;
   display: flex;
+  backdrop-filter: blur(10px);
   flex-direction: column;
   align-items: center;
   justify-content: center;
