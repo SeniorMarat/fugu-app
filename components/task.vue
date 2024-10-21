@@ -20,6 +20,7 @@ const props = defineProps<{ label: string, value: number, type: "nickname" | "in
 .task {
   position: relative;
   background-color: #ffffff7c;
+  backdrop-filter: blur(10px);
   width: 350px;
   height: 60px;
   margin-bottom: 20px;
