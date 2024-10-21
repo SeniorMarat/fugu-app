@@ -8,10 +8,14 @@ definePageMeta({
 })
 
 interface obstacles {
-  pipeX: number
-  pipeHeight: number
-  pipeGap: number
-  pipeWidth: number
+  hitboxes: [
+    {
+      x: number
+      y: number
+      height: number
+      width: number
+    },
+  ]
 }
 
 interface fugu {
@@ -25,10 +29,12 @@ const obstacles_ref = ref<obstacles>()
 const fugu_ref = ref<fugu>()
 const is_colliding = computed(() => {
   if (obstacles_ref.value && fugu_ref.value) {
-    if (Math.abs(obstacles_ref.value.pipeX - fugu_ref.value.x) < obstacles_ref.value.pipeWidth / 2) {
+    const hitboxes = obstacles_ref.value.hitboxes
+    for (const hitbox of hitboxes) {
       if (
-        fugu_ref.value.y < obstacles_ref.value.pipeHeight
-        || fugu_ref.value.y > obstacles_ref.value.pipeHeight + obstacles_ref.value.pipeGap
+        Math.abs(hitbox.x - fugu_ref.value.x) < (fugu_ref.value.size + hitbox.width) / 2
+        && fugu_ref.value.y + fugu_ref.value.size > hitbox.y
+        && fugu_ref.value.y < hitbox.y + hitbox.height
       ) {
         return true
       }
@@ -36,6 +42,7 @@ const is_colliding = computed(() => {
   }
   return false
 })
+
 onMounted(() => {
   setInterval(() => {
     score.value++

@@ -1,62 +1,63 @@
 <script setup lang="ts">
-import type { transform } from "typescript"
-import { onMounted, ref } from "vue"
+const obstacle_speed = 2.5
 
-const pipeWidth = 80
-const pipeGap = 150
-const pipeHeight = ref((window.outerHeight / 2) - pipeGap / 2)
-const pipeSpeed = 2.5
-const pipeX = ref(0)
-
-const pipeType = ref("bottom")
-
-interface obstacle {
-  x: number
+interface Obstacle {
+  y: number
   height: number
   width: number
-  type: "top" | "bottom"
+  type: "left" | "right"
   image: string
 }
 
-const green_coral = ref<obstacle>({ x: window.innerWidth, height: 400, width: 400, type: "top", image: "coral1.png" })
-const blue_coral = ref<obstacle>({ x: window.innerWidth, height: 400, width: 400, type: "bottom", image: "coral2.png" })
-const red_coral = ref<obstacle>({ x: window.innerWidth, height: 400, width: 400, type: "bottom", image: "coral3.png" })
+const green_coral = ref<Obstacle>({ y: 0, height: 100, width: 25, type: "left", image: "coral1.png" })
+const blue_coral = ref<Obstacle>({ y: 200, height: 100, width: 25, type: "right", image: "coral2.png" })
+const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 25, type: "left", image: "coral3.png" })
 
-const obstacles = ref([red_coral])
+const obstacles = ref([red_coral, blue_coral])
 onMounted(() => {
-  // animate pipe movement
   setInterval(() => {
     for (let i = obstacles.value.length - 1; i >= 0; i--) {
-      obstacles.value[i].value.x -= pipeSpeed
-      if (obstacles.value[i].value.x < -obstacles.value[i].value.width) {
-        obstacles.value.splice(i, 1)
+      obstacles.value[i].value.y += obstacle_speed
+      if (obstacles.value[i].value.y > window.innerHeight + obstacles.value[i].value.height) {
         const newObstacle = get_random_obstacle()
-        newObstacle.value.x = window.innerWidth
+        newObstacle.value.y = -obstacles.value[i].value.height
+        obstacles.value.splice(i, 1)
         obstacles.value.push(newObstacle)
       }
     }
-  }, 16) // 16ms = 60fps
+  }, 16)
 })
 
 function get_random_obstacle() {
   const obstacles = [red_coral, blue_coral, green_coral]
   const randomIndex = Math.floor(Math.random() * obstacles.length)
-  return ref<obstacle>({ ...obstacles[randomIndex].value })
+  return ref<Obstacle>({ ...obstacles[randomIndex].value })
 }
 
 function get_obstacle_path(name: string) {
   return new URL(`/public/obstacles/${name}`, import.meta.url).href
 }
 
-defineExpose({ pipeX, pipeHeight, pipeGap, pipeWidth, pipeType })
+const hitboxes = computed(() => {
+  return obstacles.value.map((obstacle) => {
+    return {
+      x: obstacle.value.type === "left" ? obstacle.value.width : 0,
+      y: obstacle.value.y,
+      height: obstacle.value.height,
+      width: obstacle.value.width,
+    }
+  })
+})
+
+defineExpose({ hitboxes })
 </script>
 
 <template lang="pug">
 .obstacle-container(v-for="(obstacle, index) in obstacles" :key="index")
-  .pipe(v-if="obstacle.value.type === 'top'" :style="{ height: `${obstacle.value.height}px`, left: `${obstacle.value.x}px`, width: `${obstacle.value.width}px`, top: '0px', transform: 'rotate(180deg)' }")
-    img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: '100%' }")
-  .pipe(v-if="obstacle.value.type === 'bottom'" :style="{ height: `${obstacle.value.height}px`, left: `${obstacle.value.x}px`, width: `${obstacle.value.width}px`, bottom: '0px' }")
-    img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: '100%' }")
+  .left(v-if="obstacle.value.type === 'left'" :style="{ height: `${obstacle.value.height}px`, left: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
+    img(:src="get_obstacle_path(obstacle.value.image)" :style="{ height: '100px', width: '25px' }")
+  .right(v-if="obstacle.value.type === 'right'" :style="{ height: `${obstacle.value.height}px`, right: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
+    img(:src="get_obstacle_path(obstacle.value.image)" :style="{ height: '100px', width: '25px' }")
 </template>
 
 <style module lang="scss">
@@ -66,7 +67,11 @@ defineExpose({ pipeX, pipeHeight, pipeGap, pipeWidth, pipeType })
   height: 100vh;
 }
 
-.pipe {
+.left {
+  position: absolute;
+}
+
+.right {
   position: absolute;
 }
 </style>
