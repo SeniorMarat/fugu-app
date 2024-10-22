@@ -3,9 +3,9 @@ const props = defineProps<{ isPaused: boolean }>()
 
 const wall_speed = ref(2.5)
 
-const wall_height = ref(window.innerHeight / 2)
+const wall_height = computed(() => window.innerHeight / 2)
 
-const walls = ref([ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value }), ref({ y: 820 })])
+const walls = ref < Array<Ref<{ y: number }>>>([ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value }), ref({ y: 820 })])
 
 function get_wall_path(name: string) {
   return new URL(`/public/obstacles/${name}`, import.meta.url).href
@@ -21,7 +21,7 @@ onMounted(() => {
         }
       }
       // console.log(walls.value.at(-1).value.y)
-      if (walls.value.length != 0 && walls.value?.at(-1).value.y >= 0) {
+      if (walls.value!.at(-1)!.value.y >= -5) {
         walls.value.push(ref({ y: -wall_height.value }))
       }
     }
