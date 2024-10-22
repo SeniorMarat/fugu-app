@@ -41,7 +41,7 @@ onMounted(() => {
       newObstacle.value.y = -100
       obstacles.value.push(newObstacle)
     }
-  }, 1000)
+  }, 1500)
 })
 
 function get_random_obstacle() {
