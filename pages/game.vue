@@ -25,7 +25,7 @@ function onError(result: ShowPromiseResult) {
   console.log(JSON.stringify(result, null, 4))
 }
 
-// const { showAd } = useAdsgram({ blockId: "0", onReward, onError })
+// const { showAd } = useAdsgram({ blockId: "my-block-id", onReward, onError })
 
 interface Obstacles {
   hitboxes:
