@@ -27,13 +27,15 @@ onMounted(() => {
     }
   }, 16)
 })
+
+const width = (50 / 1200) * 440
 </script>
 
 <template lang="pug">
 .walls-container
   div(v-for="(wall, index) in walls" :key="index")
-    img(:src="get_wall_path('wall-left.svg')" :style="{ height: '50vh', left: '0px', top: `${wall.value.y}px`, position: 'absolute' }")
-    img(:src="get_wall_path('wall-right.svg')" :style="{ height: '50vh', right: '0px', top: `${wall.value.y}px`, position: 'absolute' }")
+    img(:src="get_wall_path('wall.svg')" :style="{ height: '50vh', left: `-${width / 2}vw`, top: `${wall.value.y}px`, position: 'absolute' }")
+    img(:src="get_wall_path('wall.svg')" :style="{ height: '50vh', right: `-${width / 2}vw`, top: `${wall.value.y}px`, position: 'absolute' }")
 </template>
 
 <style module lang="scss">
