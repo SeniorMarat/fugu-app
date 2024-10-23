@@ -25,7 +25,7 @@ function onError(result: ShowPromiseResult) {
   console.log(JSON.stringify(result, null, 4))
 }
 
-const { showAd } = useAdsgram({ blockId: "1200", onReward, onError })
+// const { showAd } = useAdsgram({ blockId: "0", onReward, onError })
 
 interface Obstacles {
   hitboxes:
@@ -101,7 +101,7 @@ watch(is_colliding, () => {
       .score SCORE: {{ max_score }}
       pad(style="width: 90%")
         div.description multiply profit
-        o-button.action-button(style="font-size: 24px" @click="showAd") Watch ads
+        o-button.action-button(style="font-size: 24px") Watch ads
       div(style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 90%; margin-top: 3vh;")
         o-button.action-button(style="font-size: 24px; background: #3091FF;" tag="router-link" to="/") Menu
         o-button.action-button(style="font-size: 24px" @click="max_score = 0; is_game_paused = false; show_modal = false") Again
