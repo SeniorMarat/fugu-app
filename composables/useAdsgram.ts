@@ -16,11 +16,11 @@ export function useAdsgram({ blockId, onReward, onError }: UseAdsgramParams): Us
   const AdControllerRef = ref<AdController | undefined>(undefined)
 
   onMounted(() => {
-    AdControllerRef.value = window.Adsgram?.init({ blockId, debug: true, debugBannerType: "FullscreenMedia" })
+    AdControllerRef.value = window.Adsgram?.init({ blockId, debug: false })
   })
 
   watch(() => blockId, () => {
-    AdControllerRef.value = window.Adsgram?.init({ blockId, debug: true, debugBannerType: "FullscreenMedia" })
+    AdControllerRef.value = window.Adsgram?.init({ blockId, debug: false })
   })
 
   const showAd = async () => {
