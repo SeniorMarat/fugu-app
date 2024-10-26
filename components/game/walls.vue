@@ -5,7 +5,7 @@ const wall_speed = ref(2.5)
 const wall_height = ref(window.innerHeight / 2)
 
 const walls = ref<Array<Ref<{ y: number }>>>([ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })])
-window.addEventListener("resize", () => {
+window.addEventListener("DOMContentLoaded", () => {
   wall_height.value = window.innerHeight / 2
   walls.value = [ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })]
 })
