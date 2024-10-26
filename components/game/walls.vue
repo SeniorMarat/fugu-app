@@ -6,18 +6,15 @@ const props = defineProps<{ isPaused: boolean }>()
 const { height } = useWindowSize()
 
 const wall_speed = ref(2.5)
-const wall_height = computed(() => height.value / 2)
-
-const walls = ref<Array<Ref<{ y: number }>>>([ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })])
-watch(height, () => {
-  walls.value = [ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })]
-})
+const wall_height = computed(() => height.value / 2.0)
 
 function get_wall_path(name: string) {
   return new URL(`/public/obstacles/${name}`, import.meta.url).href
 }
+const walls = ref<Array<Ref<{ y: number }>>>([])
 
 onMounted(() => {
+  walls.value = [ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })]
   setInterval(() => {
     if (!props.isPaused) {
       for (let i = walls.value.length - 1; i >= 0; i--) {
@@ -36,16 +33,15 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
-.walls-container
+.walls-container(:style="{ height: `${height}px` }")
   div(v-for="(wall, index) in walls" :key="index")
-    img(:src="get_wall_path('wall.svg')" :style="{ height: `${height / 2}px`, left: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
-    img(:src="get_wall_path('wall.svg')" :style="{ height: `${height / 2}px`, right: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
+    img(:src="get_wall_path('wall.svg')" :style="{ height: `${wall_height}px`, left: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
+    img(:src="get_wall_path('wall.svg')" :style="{ height: `${wall_height}px`, right: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
 </template>
 
 <style module lang="scss">
 .walls-container {
   min-width: 100%;
-  height: 100vh;
   position: absolute;
   overflow: hidden;
 }
