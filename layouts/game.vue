@@ -37,7 +37,7 @@ body {
   position: absolute;
   flex-direction: column;
   width: 100%;
-  backdrop-filter: blur(2.5px);
+  backdrop-filter: blur(2px);
 }
 .page {
   flex: 1;
