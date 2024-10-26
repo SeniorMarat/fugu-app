@@ -2,18 +2,18 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #575756;
+        fill: #c6c6c6;
       }
 
       .cls-1,
       .cls-2 {
-        stroke: #706f6f;
+        stroke: #9d9d9c;
         stroke-miterlimit: 10;
         stroke-width: 2px;
       }
 
       .cls-2 {
-        fill: #706f6f;
+        fill: #b2b2b2;
       }
     </style>
   </defs>
