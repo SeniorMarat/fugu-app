@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useWindowSize } from "@vueuse/core"
+
 const props = defineProps<{ isPaused: boolean }>()
 
+const { width, height } = useWindowSize()
 const obstacle_speed = 2.5
 
 interface Obstacle {
@@ -27,7 +30,7 @@ onMounted(() => {
       }
       for (let i = obstacles.value.length - 1; i >= 0; i--) {
         obstacles.value[i].value.y += obstacle_speed
-        if (obstacles.value[i].value.y > window.innerHeight + obstacles.value[i].value.height) {
+        if (obstacles.value[i].value.y > height.value + obstacles.value[i].value.height) {
           obstacles.value.splice(i, 1)
         }
       }
@@ -57,7 +60,7 @@ function get_obstacle_path(name: string) {
 const hitboxes = computed(() => {
   return obstacles.value.map((obstacle) => {
     return {
-      x: obstacle.value.type === "right" ? window.innerWidth : 0,
+      x: obstacle.value.type === "right" ? width.value : 0,
       y: obstacle.value.y,
       height: obstacle.value.height,
       width: obstacle.value.width,

@@ -22,7 +22,7 @@ onMounted(() => {
     if (!props.isPaused) {
       for (let i = walls.value.length - 1; i >= 0; i--) {
         walls.value[i].value.y += wall_speed.value
-        if (walls.value[i].value.y > window.innerHeight) {
+        if (walls.value[i].value.y > height.value) {
           walls.value.splice(i, 1)
         }
       }
@@ -38,8 +38,8 @@ onMounted(() => {
 <template lang="pug">
 .walls-container
   div(v-for="(wall, index) in walls" :key="index")
-    img(:src="get_wall_path('wall.svg')" :style="{ height: '50vh', left: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
-    img(:src="get_wall_path('wall.svg')" :style="{ height: '50vh', right: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
+    img(:src="get_wall_path('wall.svg')" :style="{ height: `${height / 2}px`, left: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
+    img(:src="get_wall_path('wall.svg')" :style="{ height: `${height / 2}px`, right: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
 </template>
 
 <style module lang="scss">

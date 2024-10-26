@@ -3,12 +3,16 @@ Component for handling bird ans it's position
 -->
 
 <script setup lang="ts">
+import { useWindowSize } from "@vueuse/core"
+
 const props = defineProps<{
   isPaused: boolean
 }>()
 
+const { height } = useWindowSize()
+
 const x = ref(100) // initial x position
-const y = ref(window.innerHeight / 2) // initial y position
+const y = ref(height.value / 2) // initial y position
 const size = ref(75)
 const y_velocity = ref(0) // initial y_velocity
 const gravity = ref(0.3) // gravity constant
@@ -38,7 +42,7 @@ onMounted(() => {
 watch(() => props.isPaused, (newValue, oldValue) => {
   if (newValue === false && oldValue === true) {
     x.value = 100 // reset x position to initial value
-    y.value = window.innerHeight / 2 // reset y position to initial value
+    y.value = height.value / 2 // reset y position to initial value
     y_velocity.value = 0 // reset y_velocity to initial value
   }
 })

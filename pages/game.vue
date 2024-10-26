@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { OButton, OModal } from "@oruga-ui/oruga-next"
+import { useWindowSize } from "@vueuse/core"
 
 import fugu from "~/components/game/fugu.vue"
 import gameScore from "~/components/game/game-score.vue"
@@ -11,6 +12,8 @@ import type { ShowPromiseResult } from "~/types/adsgram"
 definePageMeta({
   layout: "game",
 })
+
+const { height } = useWindowSize()
 
 const score = ref(0)
 const max_score = ref(0)
@@ -59,7 +62,7 @@ const is_colliding = computed(() => {
         return true
       }
     }
-    if (fugu_ref.value.y > window.innerHeight || fugu_ref.value.y + fugu_ref.value.size < 0) {
+    if (fugu_ref.value.y > height.value || fugu_ref.value.y + fugu_ref.value.size < 0) {
       return true
     }
   }
