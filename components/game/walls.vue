@@ -1,12 +1,15 @@
 <script setup lang="ts">
+import { useWindowSize } from "@vueuse/core"
+
 const props = defineProps<{ isPaused: boolean }>()
 
+const { height } = useWindowSize()
+
 const wall_speed = ref(2.5)
-const wall_height = ref(window.innerHeight / 2)
+const wall_height = computed(() => height.value / 2)
 
 const walls = ref<Array<Ref<{ y: number }>>>([ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })])
-window.addEventListener("DOMContentLoaded", () => {
-  wall_height.value = window.innerHeight / 2
+watch(height, () => {
   walls.value = [ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })]
 })
 

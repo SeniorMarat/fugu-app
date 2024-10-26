@@ -19,6 +19,7 @@
   "dependencies": {
     "@oruga-ui/oruga-next": "0.9.0-pre.1",
     "@oruga-ui/theme-oruga": "^0.4.1",
+    "@vueuse/core": "^11.1.0",
     "advisory-lock": "^2.0.0",
     "concurrent-promise-queue": "^1.0.3",
     "date-fns": "^3.6.0",
