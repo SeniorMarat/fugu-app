@@ -37,14 +37,14 @@ body {
   position: absolute;
   flex-direction: column;
   width: 100%;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2.5px);
 }
 .page {
   flex: 1;
 }
 .fish {
   position: absolute;
-  height: 1vh;
+  height: 1.5vh;
   opacity: 0.15;
 }
 </style>
