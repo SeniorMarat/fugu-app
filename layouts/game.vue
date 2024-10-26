@@ -18,7 +18,6 @@ import { OButton } from "@oruga-ui/oruga-next"
 
 body {
   background: rgba(0, 142, 255, 1);
-  background-size: 400%;
   overflow: hidden;
 }
 
@@ -38,6 +37,5 @@ body {
 }
 .page {
   flex: 1;
-  overflow-y: auto;
 }
 </style>
