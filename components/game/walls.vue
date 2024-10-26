@@ -8,13 +8,16 @@ const { height } = useWindowSize()
 const wall_speed = ref(2.5)
 const wall_height = computed(() => height.value / 2.0)
 
+const walls = ref<Array<Ref<{ y: number }>>>([ref({ y: wall_height.value * 3 / 2 }), ref({ y: wall_height.value / 2 }), ref({ y: -wall_height.value / 2 })])
+watch(height, () => {
+  walls.value = [ref({ y: wall_height.value * 3 / 2 }), ref({ y: wall_height.value / 2 }), ref({ y: -wall_height.value / 2 })]
+})
+
 function get_wall_path(name: string) {
   return new URL(`/public/obstacles/${name}`, import.meta.url).href
 }
-const walls = ref<Array<Ref<{ y: number }>>>([])
 
 onMounted(() => {
-  walls.value = [ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })]
   setInterval(() => {
     if (!props.isPaused) {
       for (let i = walls.value.length - 1; i >= 0; i--) {
@@ -23,7 +26,6 @@ onMounted(() => {
           walls.value.splice(i, 1)
         }
       }
-      // console.log(walls.value.at(-1).value.y)
       if (walls.value!.at(-1)!.value.y >= -5) {
         walls.value.push(ref({ y: -wall_height.value }))
       }
