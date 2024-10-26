@@ -41,5 +41,6 @@ onMounted(() => {
   min-width: 100%;
   height: 100vh;
   position: absolute;
+  overflow: hidden;
 }
 </style>
