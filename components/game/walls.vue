@@ -4,11 +4,11 @@ const props = defineProps<{ isPaused: boolean }>()
 const wall_speed = ref(2.5)
 const wall_height = ref(window.innerHeight / 2)
 
+const walls = ref<Array<Ref<{ y: number }>>>([ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })])
 window.addEventListener("resize", () => {
   wall_height.value = window.innerHeight / 2
+  walls.value = [ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value })]
 })
-
-const walls = ref < Array<Ref<{ y: number }>>>([ref({ y: -wall_height.value }), ref({ y: 0.0 }), ref({ y: wall_height.value }), ref({ y: 820 })])
 
 function get_wall_path(name: string) {
   return new URL(`/public/obstacles/${name}`, import.meta.url).href
@@ -44,6 +44,5 @@ onMounted(() => {
   min-width: 100%;
   height: 100vh;
   position: absolute;
-  overflow: hidden;
 }
 </style>
