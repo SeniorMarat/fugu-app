@@ -14,9 +14,10 @@ interface Obstacle {
   image: string
 }
 
-const green_coral = ref<Obstacle>({ y: 0, height: 100, width: 100, type: "left", image: "coral1.png" })
-const blue_coral = ref<Obstacle>({ y: 0, height: 100, width: 100, type: "right", image: "coral2.png" })
-const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 100, type: "left", image: "coral3.png" })
+const green_coral = ref<Obstacle>({ y: 0, height: 100, width: 100, type: "left", image: "coral1.svg" })
+const blue_coral = ref<Obstacle>({ y: 0, height: 100, width: 100, type: "right", image: "coral2.svg" })
+const red_coral = ref<Obstacle>({ y: 0, height: 100, width: 100, type: "left", image: "coral3.svg" })
+const black_coral = ref<Obstacle>({ y: 0, height: 100, width: 100, type: "right", image: "coral4.svg" })
 
 const obstacles = ref([green_coral])
 let was_paused = false
@@ -48,7 +49,7 @@ onMounted(() => {
 })
 
 function get_random_obstacle() {
-  const obstacles = [red_coral, blue_coral, green_coral]
+  const obstacles = [red_coral, blue_coral, green_coral, black_coral]
   const randomIndex = Math.floor(Math.random() * obstacles.length)
   return ref<Obstacle>({ ...obstacles[randomIndex].value })
 }
