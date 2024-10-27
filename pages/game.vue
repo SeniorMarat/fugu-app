@@ -57,7 +57,7 @@ const is_colliding = computed(() => {
         < hitbox.width
         && fugu_ref.value.y + fugu_ref.value.size / 2 > hitbox.y
         && fugu_ref.value.y + fugu_ref.value.size / 2
-        < hitbox.y + hitbox.height / 2
+        < hitbox.y + hitbox.height
       ) {
         return true
       }
