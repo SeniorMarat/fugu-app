@@ -19,14 +19,12 @@
   -ms-user-select: none;
 }
 
-body {
+.layout {
   background: rgba(0, 142, 255, 1);
   background-image: url("/public/obstacles/bg.svg");
   background-size: 400%;
+  background-position: 50% 50%;
   overflow: hidden;
-}
-
-.layout {
   display: flex;
   height: 100svh;
   width: 100%;

@@ -10,16 +10,13 @@
 </template>
 
 <style module lang="scss">
-body {
+.layout {
   background: rgba(0, 142, 255, 1);
   background-size: 400%;
   overflow: hidden;
-}
-.layout {
   display: flex;
   height: 100svh;
   width: 100%;
-  background-color: inherit;
   flex-direction: column;
 }
 
