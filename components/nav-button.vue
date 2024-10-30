@@ -1,3 +1,6 @@
+<!--
+Кнопка для навигации
+-->
 <script setup lang="ts">
 import { OButton } from "@oruga-ui/oruga-next"
 
