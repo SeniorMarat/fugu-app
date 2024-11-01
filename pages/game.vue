@@ -79,8 +79,8 @@ const bonus_index = computed(() => {
     for (let i = 0; i < hitboxes.length; i++) {
       const hitbox = hitboxes[i]
       if (
-        Math.abs(hitbox.x - (fugu_ref.value.x + fugu_ref.value.size / 2))
-        < hitbox.width
+        (Math.abs(hitbox.x - (fugu_ref.value.x))
+        < hitbox.width || Math.abs(hitbox.x - (fugu_ref.value.x + fugu_ref.value.size)) < hitbox.width)
         && fugu_ref.value.y + fugu_ref.value.size / 2 > hitbox.y
         && fugu_ref.value.y + fugu_ref.value.size / 2
         < hitbox.y + hitbox.height
