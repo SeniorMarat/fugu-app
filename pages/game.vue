@@ -116,7 +116,7 @@ watch(is_colliding, (new_value) => {
         o-button.action-button(style="font-size: 24px" @click="showAd") Watch ads
       div(style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 90%; margin-top: 3vh;")
         o-button.action-button(style="font-size: 24px; background: #3091FF;" tag="router-link" to="/") Menu
-        o-button.action-button(style="font-size: 24px" @click="max_score = 0; is_game_paused = false; show_modal = false") Again
+        o-button.action-button(style="font-size: 24px" @click="score = 0; is_game_paused = false; show_modal = false") Again
 </template>
 
 <style module lang="scss">
