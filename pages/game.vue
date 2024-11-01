@@ -17,12 +17,11 @@ definePageMeta({
 const { height } = useWindowSize()
 
 const score = ref(0)
-const max_score = ref(0)
 const is_game_paused = ref(false)
 const show_modal = ref(false)
 
 function onReward() {
-  max_score.value = max_score.value * 2
+  score.value = score.value * 2
 }
 function onError(result: ShowPromiseResult) {
   // eslint-disable-next-line no-console
@@ -99,13 +98,6 @@ watch(is_colliding, (new_value) => {
     show_modal.value = true
   }
 })
-
-watch(is_colliding, () => {
-  if (is_colliding.value) {
-    max_score.value = Math.max(max_score.value, score.value)
-    score.value = 0
-  }
-})
 </script>
 
 <template lang="pug">
@@ -118,7 +110,7 @@ watch(is_colliding, () => {
   o-modal.modal(v-model:active="show_modal")
     div(style="display: flex; flex-direction: column; align-items: center; min-width: 100vw; min-height: 100vh;")
       .game-over GAME OVER
-      .score SCORE: {{ max_score }}
+      .score SCORE: {{ score }}
       pad(style="width: 90%")
         div.description multiply profit
         o-button.action-button(style="font-size: 24px" @click="showAd") Watch ads
