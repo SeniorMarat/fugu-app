@@ -70,7 +70,7 @@ function get_bonus_path(name: string) {
 const hitboxes = computed(() => {
   return bonuses.value.map((bonus) => {
     return {
-      x: bonus.value.type === "right" ? width.value - 10 : 10,
+      x: bonus.value.type === "right" ? width.value - 10 - bonus.value.width / 2 : 10 + bonus.value.width / 2,
       y: bonus.value.y,
       height: bonus.value.height,
       width: bonus.value.width,
