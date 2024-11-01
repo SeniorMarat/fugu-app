@@ -17,7 +17,7 @@ interface bonus {
   type: "left" | "right"
   image: string
 }
-const coin = ref<bonus>({ y: 100, height: 50, width: 50, type: "left", image: "coin.svg" })
+const coin = ref<bonus>({ y: -200, height: 50, width: 50, type: "left", image: "coin.svg" })
 
 const bonuses = ref([coin])
 let was_paused = false
@@ -49,7 +49,7 @@ onMounted(() => {
   setInterval(() => {
     if (!props.isPaused) {
       const newbonus = get_random_bonus()
-      newbonus.value.y = -100
+      newbonus.value.y = -200
       bonuses.value.push(newbonus)
     }
   }, 1750)
