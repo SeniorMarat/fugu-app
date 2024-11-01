@@ -2,6 +2,7 @@
 import { OButton, OModal } from "@oruga-ui/oruga-next"
 import { useWindowSize } from "@vueuse/core"
 
+import bonuses from "~/components/game/bonuses.vue"
 import fugu from "~/components/game/fugu.vue"
 import gameScore from "~/components/game/game-score.vue"
 import obstacles from "~/components/game/obstacles.vue"
@@ -47,7 +48,9 @@ interface Fugu {
 }
 
 const obstacles_ref = ref<Obstacles>()
+const bonuses_ref = ref<Obstacles>()
 const fugu_ref = ref<Fugu>()
+
 const is_colliding = computed(() => {
   if (obstacles_ref.value && fugu_ref.value) {
     const hitboxes = obstacles_ref.value.hitboxes
@@ -69,19 +72,32 @@ const is_colliding = computed(() => {
   return false
 })
 
+const bonus_index = computed(() => {
+  let touching_bonus_index = -1
+  if (bonuses_ref.value && fugu_ref.value) {
+    const hitboxes = bonuses_ref.value.hitboxes
+    for (let i = 0; i < hitboxes.length; i++) {
+      const hitbox = hitboxes[i]
+      if (
+        Math.abs(hitbox.x - (fugu_ref.value.x + fugu_ref.value.size / 2))
+        < hitbox.width
+        && fugu_ref.value.y + fugu_ref.value.size / 2 > hitbox.y
+        && fugu_ref.value.y + fugu_ref.value.size / 2
+        < hitbox.y + hitbox.height
+      ) {
+        touching_bonus_index = i
+        break
+      }
+    }
+  }
+  return touching_bonus_index
+})
+
 watch(is_colliding, (new_value) => {
   if (new_value) {
     is_game_paused.value = true
     show_modal.value = true
   }
-})
-
-onMounted(() => {
-  setInterval(() => {
-    if (!is_game_paused.value) {
-      score.value++
-    }
-  }, 1500)
 })
 
 watch(is_colliding, () => {
@@ -95,6 +111,7 @@ watch(is_colliding, () => {
 <template lang="pug">
 .page
   gameScore(:score="score")
+  bonuses(ref="bonuses_ref" v-model:bonus_index="bonus_index" :is-paused="is_game_paused" @bonus-collected="score += 1")
   obstacles(ref="obstacles_ref" :is-paused="is_game_paused")
   walls(:is-paused="is_game_paused")
   fugu(ref="fugu_ref" :is-paused="is_game_paused")
