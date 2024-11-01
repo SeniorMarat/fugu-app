@@ -12,14 +12,13 @@ const bonus_speed = 2.5
 
 interface bonus {
   y: number
-  height: number
-  width: number
+  size: number
   x: number
   type: "coin" | "bomb"
   image: string
 }
-const coin = ref<bonus>({ y: -200, height: 50, width: 50, x: 10 + 50 / 2, type: "coin", image: "coin.svg" })
-const bomb = ref<bonus>({ y: -200, height: 50, width: 50, x: width.value / 2 - 50 / 2, type: "bomb", image: "bomb.svg" })
+const coin = ref<bonus>({ y: -200, size: 50, x: 10 + 50 / 2, type: "coin", image: "coin.svg" })
+const bomb = ref<bonus>({ y: -200, size: 50, x: width.value / 2 - 50 / 2, type: "bomb", image: "bomb.svg" })
 
 const bonuses = ref([coin])
 let was_paused = false
@@ -44,7 +43,7 @@ onMounted(() => {
       }
       for (let i = bonuses.value.length - 1; i >= 0; i--) {
         bonuses.value[i].value.y += bonus_speed
-        if (bonuses.value[i].value.y > height.value + bonuses.value[i].value.height) {
+        if (bonuses.value[i].value.y > height.value + bonuses.value[i].value.size) {
           bonuses.value.splice(i, 1)
         }
       }
@@ -66,7 +65,7 @@ function get_random_bonus() {
   const randomIndex = Math.floor(Math.random() * bonuses.length)
   const bonus = ref<bonus>({ ...bonuses[randomIndex].value })
   if (bonus.value.type === "coin") {
-    bonus.value.x = Math.random() > 0.5 ? width.value - (width.value * 0.15) - bonus.value.width / 2 : 10 + bonus.value.width / 2
+    bonus.value.x = Math.random() > 0.5 ? width.value - (width.value * 0.15) - bonus.value.size / 2 : 10 + bonus.value.size / 2
   }
   return bonus
 }
@@ -78,10 +77,9 @@ function get_bonus_path(name: string) {
 const hitboxes = computed(() => {
   return bonuses.value.map((bonus) => {
     return {
-      x: bonus.value.x > 100 ? bonus.value.x + bonus.value.width : bonus.value.x,
+      x: bonus.value.x > 100 ? bonus.value.x + bonus.value.size : bonus.value.x,
       y: bonus.value.y,
-      height: bonus.value.height,
-      width: bonus.value.width,
+      size: bonus.value.size,
     }
   })
 })
@@ -92,9 +90,9 @@ defineExpose({ hitboxes })
 <template lang="pug">
 .bonus-container
   .bonus(v-for="(bonus, index) in bonuses" :key="index")
-    .coin(v-if="bonus.value.type === 'coin'" :style="{ height: `${bonus.value.height}px`, left: `${bonus.value.x}px`, width: `${bonus.value.width}px`, top: `${bonus.value.y}px` }")
+    .coin(v-if="bonus.value.type === 'coin'" :style="{ height: `${bonus.value.size}px`, left: `${bonus.value.x}px`, width: `${bonus.value.size}px`, top: `${bonus.value.y}px` }")
       img(:src="get_bonus_path(bonus.value.image)" :style="{ width: `100%` }")
-    .bomb(v-if="bonus.value.type === 'bomb'" :style="{ height: `${bonus.value.height}px`, left: `${bonus.value.x}px`, width: `${bonus.value.width}px`, top: `${bonus.value.y}px` }")
+    .bomb(v-if="bonus.value.type === 'bomb'" :style="{ height: `${bonus.value.size}px`, left: `${bonus.value.x}px`, width: `${bonus.value.size}px`, top: `${bonus.value.y}px` }")
       img(:src="get_bonus_path(bonus.value.image)" :style="{ width: `100%` }")
 </template>
 

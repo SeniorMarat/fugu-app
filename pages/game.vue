@@ -40,6 +40,15 @@ interface Obstacles {
   }[]
 }
 
+interface Bonuses {
+  hitboxes:
+  {
+    x: number
+    y: number
+    size: number
+  }[]
+}
+
 interface Fugu {
   x: number
   y: number
@@ -47,7 +56,7 @@ interface Fugu {
 }
 
 const obstacles_ref = ref<Obstacles>()
-const bonuses_ref = ref<Obstacles>()
+const bonuses_ref = ref<Bonuses>()
 const fugu_ref = ref<Fugu>()
 
 const is_colliding = computed(() => {
@@ -77,12 +86,7 @@ const bonus_index = computed(() => {
     const hitboxes = bonuses_ref.value.hitboxes
     for (let i = 0; i < hitboxes.length; i++) {
       const hitbox = hitboxes[i]
-      if (
-        (Math.abs(hitbox.x - (fugu_ref.value.x + fugu_ref.value.size / 2))
-        < hitbox.width / 2 + fugu_ref.value.size / 2)
-        && (Math.abs(hitbox.y + hitbox.height / 2 - (fugu_ref.value.y + fugu_ref.value.size / 2))
-        < hitbox.height / 2 + fugu_ref.value.size / 2)
-      ) {
+      if (Math.sqrt((hitbox.x - fugu_ref.value.x - fugu_ref.value.size / 2) ** 2 + (hitbox.y + hitbox.size / 2 - fugu_ref.value.y - fugu_ref.value.size / 2) ** 2) < hitbox.size / 2 + fugu_ref.value.size / 2) {
         touching_bonus_index = i
         break
       }
