@@ -77,7 +77,7 @@ function get_bonus_path(name: string) {
 const hitboxes = computed(() => {
   return bonuses.value.map((bonus) => {
     return {
-      x: bonus.value.x > 100 ? bonus.value.x + bonus.value.size : bonus.value.x,
+      x: bonus.value.x + bonus.value.size / 2,
       y: bonus.value.y,
       size: bonus.value.size,
     }
