@@ -84,6 +84,7 @@ defineExpose({ x, y, size })
 
 <style module lang="scss">
 .fugu {
+  background-color: red;
   position: absolute;
 }
 </style>
