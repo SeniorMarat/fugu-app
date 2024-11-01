@@ -80,9 +80,10 @@ const bonus_index = computed(() => {
       const hitbox = hitboxes[i]
       if (
         (Math.abs(hitbox.x - (fugu_ref.value.x + fugu_ref.value.size / 2))
-        < hitbox.width / 2 + fugu_ref.value.size / 2)
-        && (Math.abs(hitbox.y + hitbox.height / 2 - (fugu_ref.value.y + fugu_ref.value.size / 2))
-        < hitbox.height / 2 + fugu_ref.value.size / 2)
+        < hitbox.width || Math.abs(hitbox.x - (fugu_ref.value.x + fugu_ref.value.size)) < hitbox.width)
+        && fugu_ref.value.y + fugu_ref.value.size / 2 > hitbox.y
+        && fugu_ref.value.y + fugu_ref.value.size / 2
+        < hitbox.y + hitbox.height
       ) {
         touching_bonus_index = i
         break
@@ -110,7 +111,7 @@ watch(is_colliding, () => {
 <template lang="pug">
 .page
   gameScore(:score="score")
-  bonuses(ref="bonuses_ref" v-model:bonus_index="bonus_index" :is-paused="is_game_paused" @bonus-collected="score += 1")
+  bonuses(ref="bonuses_ref" v-model:bonus_index="bonus_index" :is-paused="is_game_paused" @coin-collected="score += 1" @bomb-collected="is_game_paused = true, show_modal = true")
   obstacles(ref="obstacles_ref" :is-paused="is_game_paused")
   walls(:is-paused="is_game_paused")
   fugu(ref="fugu_ref" :is-paused="is_game_paused")

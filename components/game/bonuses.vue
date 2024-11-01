@@ -3,7 +3,7 @@ import { useWindowSize } from "@vueuse/core"
 
 const props = defineProps<{ isPaused: boolean }>()
 
-const emit = defineEmits(["bonusCollected"])
+const emit = defineEmits(["coinCollected", "bombCollected"])
 
 const bonus_index = defineModel<number>("bonus_index", { required: true })
 
@@ -14,18 +14,24 @@ interface bonus {
   y: number
   height: number
   width: number
-  type: "left" | "right"
+  x: number
+  type: "coin" | "bomb"
   image: string
 }
-const coin = ref<bonus>({ y: -200, height: 50, width: 50, type: "left", image: "coin.svg" })
+const coin = ref<bonus>({ y: -200, height: 50, width: 50, x: 10 + 50 / 2, type: "coin", image: "coin.svg" })
+const bomb = ref<bonus>({ y: -200, height: 50, width: 50, x: width.value / 2 - 50 / 2, type: "bomb", image: "bomb.svg" })
 
 const bonuses = ref([coin])
 let was_paused = false
 
 watch(bonus_index, (new_index) => {
   if (new_index !== -1) {
-    bonuses.value.splice(new_index, 1)
-    emit("bonusCollected")
+    if (bonuses.value[new_index].value.type === "coin") {
+      bonuses.value.splice(new_index, 1)
+      emit("coinCollected")
+    } else if (bonuses.value[new_index].value.type === "bomb") {
+      emit("bombCollected")
+    }
   }
 })
 
@@ -56,10 +62,12 @@ onMounted(() => {
 })
 
 function get_random_bonus() {
-  const bonuses = [coin]
+  const bonuses = [coin, bomb]
   const randomIndex = Math.floor(Math.random() * bonuses.length)
   const bonus = ref<bonus>({ ...bonuses[randomIndex].value })
-  bonus.value.type = Math.random() > 0.5 ? "left" : "right"
+  if (bonus.value.type === "coin") {
+    bonus.value.x = Math.random() > 0.5 ? width.value - (width.value * 0.15) - bonus.value.width / 2 : 10 + bonus.value.width / 2
+  }
   return bonus
 }
 
@@ -70,7 +78,7 @@ function get_bonus_path(name: string) {
 const hitboxes = computed(() => {
   return bonuses.value.map((bonus) => {
     return {
-      x: bonus.value.type === "right" ? width.value - 10 - bonus.value.width / 2 : 10 + bonus.value.width / 2,
+      x: bonus.value.x > 100 ? bonus.value.x + bonus.value.width : bonus.value.x,
       y: bonus.value.y,
       height: bonus.value.height,
       width: bonus.value.width,
@@ -84,9 +92,9 @@ defineExpose({ hitboxes })
 <template lang="pug">
 .bonus-container
   .bonus(v-for="(bonus, index) in bonuses" :key="index")
-    .left(v-if="bonus.value.type === 'left'" :style="{ height: `${bonus.value.height}px`, left: `10vw`, width: `${bonus.value.width}px`, top: `${bonus.value.y}px` }")
+    .coin(v-if="bonus.value.type === 'coin'" :style="{ height: `${bonus.value.height}px`, left: `${bonus.value.x}px`, width: `${bonus.value.width}px`, top: `${bonus.value.y}px` }")
       img(:src="get_bonus_path(bonus.value.image)" :style="{ width: `100%` }")
-    .right(v-if="bonus.value.type === 'right'" :style="{ height: `${bonus.value.height}px`, right: `10vw`, width: `${bonus.value.width}px`, top: `${bonus.value.y}px` }")
+    .bomb(v-if="bonus.value.type === 'bomb'" :style="{ height: `${bonus.value.height}px`, left: `${bonus.value.x}px`, width: `${bonus.value.width}px`, top: `${bonus.value.y}px` }")
       img(:src="get_bonus_path(bonus.value.image)" :style="{ width: `100%` }")
 </template>
 
@@ -96,11 +104,11 @@ defineExpose({ hitboxes })
   height: 100vh;
 }
 
-.left {
+.coin {
   position: absolute;
 }
 
-.right {
+.bomb {
   position: absolute;
 }
 </style>
