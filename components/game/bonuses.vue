@@ -63,7 +63,7 @@ onMounted(() => {
 })
 
 function get_random_bonus() {
-  const bonuses = [coin1, coin2, bomb]
+  const bonuses = [coin, coin1, coin2]
   const randomIndex = Math.floor(Math.random() * bonuses.length)
   const bonus = ref<bonus>({ ...bonuses[randomIndex].value })
   if (bonus.value.type === "coin") {
