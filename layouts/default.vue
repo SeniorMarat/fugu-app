@@ -15,7 +15,7 @@
   background-size: 400%;
   overflow: hidden;
   display: flex;
-  height: 100svh;
+  height: 100vh;
   width: 100%;
   flex-direction: column;
 }

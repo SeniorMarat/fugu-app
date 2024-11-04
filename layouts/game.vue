@@ -16,12 +16,15 @@
 }
 
 .layout {
-  background: rgba(0, 142, 255, 1);
+  background-image: url("/public/obstacles/bg.svg");
+  background-size: cover;
+  background-position-x: center;
   overflow: hidden;
   display: flex;
-  height: 100svh;
+  height: 100vh;
   width: 100%;
   flex-direction: column;
+  overflow-y: hidden;
 }
 
 .main {
