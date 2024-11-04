@@ -23,7 +23,7 @@ onMounted(() => {
         }
       }
       if (walls.value!.at(-1)!.value.y >= -5) {
-        const names = ["wall1.svg", "wall2.svg", "wall3.svg", "wall4.svg", "wall5.svg"]
+        const names = ["wall4.svg", "wall5.svg"]
         const random_index = Math.floor(Math.random() * names.length)
         walls.value.push(ref({ y: -wall_height.value, img: names[random_index] }))
       }
