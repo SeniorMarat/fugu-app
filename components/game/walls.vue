@@ -8,7 +8,7 @@ const { height } = useWindowSize()
 const wall_speed = ref(2.5)
 const wall_height = computed(() => height.value / 2.0)
 
-const walls = ref<Array<Ref<{ y: number, img: string }>>>([ref({ y: wall_height.value, img: "wall4.svg" }), ref({ y: +5, img: "wall5.svg" }), ref({ y: -wall_height.value + 10, img: "wall4.svg" })])
+const walls = ref<Array<Ref<{ y: number, img: string }>>>([ref({ y: wall_height.value, img: "wall6.svg" }), ref({ y: +5, img: "wall5.svg" }), ref({ y: -wall_height.value + 10, img: "wall6.svg" })])
 
 function get_wall_path(name: string) {
   return new URL(`/public/obstacles/${name}`, import.meta.url).href
@@ -23,7 +23,7 @@ onMounted(() => {
         }
       }
       if (walls.value!.at(-1)!.value.y >= -5) {
-        const names = ["wall4.svg", "wall5.svg"]
+        const names = ["wall6.svg", "wall5.svg"]
         const random_index = Math.floor(Math.random() * names.length)
         walls.value.push(ref({ y: -wall_height.value, img: names[random_index] }))
       }
