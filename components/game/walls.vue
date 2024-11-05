@@ -8,7 +8,7 @@ const { height } = useWindowSize()
 const wall_speed = ref(2.5)
 const wall_height = computed(() => height.value / 2.0)
 
-const walls = ref<Array<Ref<{ y: number, img: string }>>>([ref({ y: wall_height.value, img: "wall1.svg" }), ref({ y: +5, img: "wall2.svg" }), ref({ y: -wall_height.value + 10, img: "wall3.svg" })])
+const walls = ref<Array<Ref<{ y: number, img: string }>>>([ref({ y: wall_height.value, img: "wall4.svg" }), ref({ y: +5, img: "wall5.svg" }), ref({ y: -wall_height.value + 10, img: "wall4.svg" })])
 
 function get_wall_path(name: string) {
   return new URL(`/public/obstacles/${name}`, import.meta.url).href
