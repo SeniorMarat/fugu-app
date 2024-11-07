@@ -16,7 +16,7 @@
 }
 
 .layout {
-  background-image: url("/public/obstacles/bg.svg");
+  background: rgba(0, 142, 255, 1);
   background-size: cover;
   background-position-x: center;
   overflow: hidden;
