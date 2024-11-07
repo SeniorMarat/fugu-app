@@ -18,7 +18,7 @@ interface bonus {
   image: string
 }
 const coin = ref<bonus>({ y: -200, size: 40, x: 10 + 50 / 2, type: "coin", image: "coin.svg" })
-const bomb = ref<bonus>({ y: -200, size: 50, x: width.value / 2 - 50 / 2, type: "bomb", image: "bomb.svg" })
+const bomb = ref<bonus>({ y: -200, size: 45, x: width.value / 2 - 50 / 2, type: "bomb", image: "bomb.svg" })
 
 const bonuses = ref([coin])
 let was_paused = false
