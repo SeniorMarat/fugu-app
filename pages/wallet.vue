@@ -47,7 +47,6 @@ async function disconnect() {
   text-align: center;
   border: 1px solid #000000;
   box-shadow: 2px 4px 4px 0px #00000040;
-  font-family: "Inter";
   font-size: 14px;
   font-weight: 500;
   border-radius: 20px;
@@ -75,7 +74,6 @@ async function disconnect() {
   color: #fff;
   border: 1px solid #000000;
   box-shadow: 2px 4px 4px 0px #00000040;
-  font-family: "Inter";
   font-size: 20px;
   font-weight: 500;
   border-radius: 20px;
@@ -93,7 +91,6 @@ async function disconnect() {
   color: #fff;
   border: 1px solid #000000;
   box-shadow: 2px 4px 4px 0px #00000040;
-  font-family: "Inter";
   font-size: 20px;
   font-weight: 500;
   border-radius: 20px;
@@ -101,7 +98,6 @@ async function disconnect() {
 
 .balance-label {
   color: #fff;
-  font-family: "Inter";
   -webkit-text-stroke: 2px #000;
   paint-order: stroke fill;
   font-weight: 700;
@@ -127,14 +123,12 @@ async function disconnect() {
   color: #fff;
   font-size: 20px;
   font-weight: 800;
-  font-family: "Inter";
   -webkit-text-stroke: 2px #000;
   paint-order: stroke fill;
 }
 
 .coming-soon {
   padding-top: 70px;
-  font-family: "Inter";
   font-size: 20px;
   font-weight: 800;
 }
@@ -146,7 +140,6 @@ async function disconnect() {
   background: #f5308f;
   border: 1px solid #000000;
   box-shadow: 0px 4px 4px 0px #00000040;
-  font-family: "Jua", sans-serif;
   font-size: 32px;
   font-weight: 400;
   color: #fff;

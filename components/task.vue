@@ -31,14 +31,14 @@ const props = defineProps<{ label: string, value: number, type: "nickname" | "in
   gap: 6px;
   padding-left: 13px;
   padding-top: 7px;
-  font-family: "Inter";
+
   box-shadow: 0px 4px 4px 0px #00000040;
 
   font-weight: 500;
 }
 
 .label {
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .value {
@@ -53,7 +53,6 @@ const props = defineProps<{ label: string, value: number, type: "nickname" | "in
   height: 20px;
   border-radius: 20px;
   margin-left: 8px;
-  font-family: "Inter";
   color: #fff;
   font-size: 12px;
   font-weight: 500;
@@ -66,7 +65,6 @@ const props = defineProps<{ label: string, value: number, type: "nickname" | "in
   height: 26px;
   border-radius: 20px;
   margin-right: 10px;
-  font-family: "Inter";
   font-size: 13px;
   font-weight: 500;
   color: #ffffff;
@@ -84,7 +82,6 @@ const props = defineProps<{ label: string, value: number, type: "nickname" | "in
   height: 26px;
   border-radius: 20px;
   margin-right: 10px;
-  font-family: "Inter";
   font-size: 13px;
   font-weight: 500;
   border: 1px solid #bec1c580;

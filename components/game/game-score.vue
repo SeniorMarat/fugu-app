@@ -10,7 +10,6 @@ const props = defineProps<{ score: number }>()
 .game-score {
   padding-top: 15px;
   text-align: center;
-  font-family: "Jua", sans-serif;
   font-weight: 400;
   font-size: 40px;
   -webkit-text-stroke: 0.5px #000;

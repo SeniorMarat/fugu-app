@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const tasks = ref([
+const tasks = ref<{ label: string, reward: number, type: "nickname" | "invite" | "transaction" | "subscribe" }[]>([
   { label: "make a TON transaction", type: "transaction", reward: 2000 },
   { label: "Subscribe to channel", type: "subscribe", reward: 250 },
   { label: "Subscribe to FUGU Twitter", type: "subscribe", reward: 150 },
@@ -12,14 +12,13 @@ const tasks = ref([
 div(style="display: flex; flex-direction:column; justify-content: center; align-items: center; width: 100vw; padding-top: 5vh;")
   .title Fortune
   pad(style="width: 180px; height: 160px")
-    img.fortune-circle(src="/public/div.loader.png" style="width: 170px;" @click="() => $router.push('/fortune')")
+    img.fortune-circle(src="/public/big-wheel2.png" style="width: 170px;" @click="() => $router.push('/fortune')")
   .title Tasks
   task(v-for="(task, index) in tasks" :key="index" :label="task.label" :value="task.reward" :type="task.type")
 </template>
 
 <style module lang="scss">
 .title {
-  font-family: "Jua", sans-serif;
   font-size: 24px;
   font-weight: 500;
   color: #ffffff;
@@ -28,7 +27,7 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
 }
 
 .fortune-circle {
-  animation: spin 2s infinite linear;
+  animation: spin 5s infinite linear;
 }
 
 @keyframes spin {

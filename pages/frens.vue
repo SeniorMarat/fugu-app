@@ -6,7 +6,7 @@ interface fren {
   amount: number
 }
 
-const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", amount: 1000 }, { name: "Yan", amount: 1000 }, { name: "Maxim", amount: 1000 }])
+const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", amount: 1000 }, { name: "Yan", amount: 100 }])
 </script>
 
 <template lang="pug">
@@ -49,7 +49,6 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
 }
 
 .label {
-  font-family: "Jua", sans-serif;
   font-size: 48px;
   font-weight: 400;
   color: #fff;
@@ -64,7 +63,6 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
   border: 1px solid #000000;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px #00000040;
-  font-family: Jua;
   font-weight: 400;
   color: #fff;
   padding-left: 8px;
@@ -81,20 +79,17 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
 }
 
 .side-text {
-  font-family: "Jua", sans-serif;
   font-size: 11px;
   font-weight: 400;
   color: #fff;
 }
 
 .friend-name {
-  font-family: "Jua", sans-serif;
   font-size: 20px;
   font-weight: 400;
 }
 
 .empty-text {
-  font-family: "Jua", sans-serif;
   font-size: 24px;
   font-weight: 400;
   text-align: center;
@@ -107,7 +102,6 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
   background: #f5308f;
   border: 1px solid #000000;
   box-shadow: 0px 4px 4px 0px #00000040;
-  font-family: "Jua", sans-serif;
   font-size: 32px;
   font-weight: 400;
   color: #fff;

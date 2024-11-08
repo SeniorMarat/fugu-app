@@ -147,7 +147,6 @@ watch(is_colliding, (new_value) => {
 
 .game-over {
   margin-top: 20px;
-  font-family: "Jua", sans-serif;
   font-size: 48px;
   font-weight: 400;
   text-align: center;
@@ -159,7 +158,6 @@ watch(is_colliding, (new_value) => {
 .score {
   margin-top: 20px;
   margin-bottom: 25vh;
-  font-family: "Jua", sans-serif;
   font-size: 32px;
   font-weight: 700;
   text-align: center;
@@ -169,7 +167,6 @@ watch(is_colliding, (new_value) => {
 }
 
 .description {
-  font-family: Inter;
   font-size: 30px;
   font-weight: 700;
   line-height: 36.31px;
@@ -184,7 +181,6 @@ watch(is_colliding, (new_value) => {
   background: #f5308f;
   border: 1px solid #fff;
   box-shadow: 0px 4px 4px 0px #00000040;
-  font-family: "Jua", sans-serif;
   font-size: 32px;
   font-weight: 400;
   color: #fff;

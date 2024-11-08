@@ -50,7 +50,6 @@ o-button.nav-button.all_rounded(:class="roundedClass" tag="router-link" :to="pro
   color: #fff;
   border: 2px solid #c3cfd933;
   box-shadow: 4px 4px 4px 0px #00000040;
-  font-family: "Inter";
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;

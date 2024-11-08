@@ -21,7 +21,6 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
   border-radius: 20px;
   border: 2px solid #ffffff;
   box-shadow: 0px 4px 4px 0px #00000040;
-  font-family: "Inter";
   font-size: 36px;
   font-weight: 700;
   color: #ffffff;
@@ -52,7 +51,6 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
   background: #f5308f;
   border: px solid #000000;
   box-shadow: 0px 4px 4px 0px #00000040;
-  font-family: "Jua", sans-serif;
   font-size: 32px;
   font-weight: 400;
   color: #fff;

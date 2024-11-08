@@ -46,7 +46,6 @@ import { OButton } from "@oruga-ui/oruga-next"
   background-color: #f5308f;
   color: #fff;
   -webkit-text-stroke: 1px #000;
-  font-family: "Jua", sans-serif;
   font-weight: 400;
   font-size: 36px;
   padding: 0px;
@@ -67,7 +66,6 @@ import { OButton } from "@oruga-ui/oruga-next"
   color: #fff;
   border: 2px solid #c3cfd933;
   box-shadow: 4px 4px 4px 0px #00000040;
-  font-family: "Inter";
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
