@@ -52,6 +52,7 @@ const props = defineProps<{ label: string, value: number, type: "nickname" | "in
   position: absolute;
   left: 30%;
   background-color: #f5308f;
+  border: 0.5px solid #000000;
   width: 50px;
   height: 20px;
   border-radius: 20px;
