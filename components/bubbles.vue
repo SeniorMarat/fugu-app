@@ -63,6 +63,7 @@ function get_bubble_path(name: string) {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  filter: blur(2px);
 }
 
 .bubble {
