@@ -25,6 +25,7 @@ const isMobile = "ontouchstart" in window
   display: flex;
   position: absolute;
   flex-direction: column;
+  width: 100%;
 }
 
 .page {

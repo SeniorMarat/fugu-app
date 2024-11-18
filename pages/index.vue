@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { OButton } from "@oruga-ui/oruga-next"
 
+const router = useRouter()
 const isMobile = "ontouchstart" in window
 
 if (!isMobile) {
-  window.location.href = "/no-access"
+  router.push("/no-access")
 }
 </script>
 
