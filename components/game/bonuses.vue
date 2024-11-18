@@ -17,7 +17,7 @@ interface Bonus {
   type: "coin" | "bomb"
   image: string
 }
-const coin = ref<Bonus>({ y: -200, size: 40, x: 10 + 50 / 2, type: "coin", image: "coin.svg" })
+const coin = ref<Bonus>({ y: -200, size: 40, x: width.value * 0.33 - 40 / 2, type: "coin", image: "coin.svg" })
 const bomb = ref<Bonus>({ y: -200, size: 45, x: width.value / 2 - 50 / 2, type: "bomb", image: "bomb.svg" })
 
 const bonuses = ref([coin])
@@ -68,8 +68,8 @@ function get_random_bonus() {
   const bonus = ref<Bonus>({ ...bonuses[randomIndex].value })
   if (bonus.value.type === "coin") {
     bonus.value.x = Math.random() > 0.5
-      ? width.value - (width.value * 0.15) - bonus.value.size / 2
-      : 10 + bonus.value.size / 2
+      ? width.value - (width.value * 0.33) - bonus.value.size / 2
+      : width.value * 0.33 - bonus.value.size / 2
   }
   return bonus
 }
