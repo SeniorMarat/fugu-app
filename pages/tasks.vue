@@ -12,7 +12,7 @@ const tasks = ref<{ label: string, reward: number, type: "nickname" | "invite" |
 .tasks
   .title Fortune
   pad(style="width: 180px; height: 160px")
-    img.fortune-circle(src="/public/big-wheel2.png" style="width: 170px;" @click="() => $router.push('/fortune')")
+    img.fortune-circle(src="/public/big-wheel.png" style="width: 170px;" @click="() => $router.push('/fortune')")
   .title Tasks
   task(v-for="(task, index) in tasks" :key="index" :label="task.label" :value="task.reward" :type="task.type")
 </template>

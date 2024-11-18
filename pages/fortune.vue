@@ -7,7 +7,7 @@
     o-button.count-button(@click="() => $router.push('/shop')")
       img(class="icon" src="/public/plus-circle.svg" style="width: 35px; margin-left: 10px")
       div(style="position: absolute; left: 50%; transform: translateX(-50%);") 2
-    img.wheel(src="/public/big-wheel2.png")
+    img.wheel(src="/public/big-wheel.png")
   o-button.spin-button Spin
 </template>
 

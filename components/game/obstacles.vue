@@ -56,7 +56,7 @@ function get_random_obstacle() {
 }
 
 function get_obstacle_path(name: string) {
-  return new URL(`/public/obstacles/${name}`, import.meta.url).href
+  return new URL(`/public/game/obstacles/${name}`, import.meta.url).href
 }
 
 const hitboxes = computed(() => {

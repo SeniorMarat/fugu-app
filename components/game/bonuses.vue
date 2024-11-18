@@ -75,7 +75,7 @@ function get_random_bonus() {
 }
 
 function get_bonus_path(name: string) {
-  return new URL(`/public/bonuses/${name}`, import.meta.url).href
+  return new URL(`/public/game/bonuses/${name}`, import.meta.url).href
 }
 
 const hitboxes = computed(() => {

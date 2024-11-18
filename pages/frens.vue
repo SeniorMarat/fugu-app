@@ -32,9 +32,9 @@ const friends = ref<fren[]>([
         @click="friends.splice(index, 1)"
       )
         .friend-row
-          img(src="/public/small_fugu.png" style="width: 20px; margin-right: 10px;")
+          img(src="/public/fugu.svg" style="width: 20px; margin-right: 10px;")
           .friend-name {{ friend.name }}
-        img(src="/public/separator.svg" class="icon" style="width: 100%; margin-left: 10px; margin-right: 10px;")
+        img(src="/public/icons/separator.svg" class="icon" style="width: 100%; margin-left: 10px; margin-right: 10px;")
     div(
       v-if="friends.length === 0"
       style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;"
@@ -44,9 +44,9 @@ const friends = ref<fren[]>([
       img(src="/public/angry-fugu.png" style="width: 300px;")
   div(style="display: flex; flex-direction: row; justify-content: space-between; width: 90%; margin-top: 3vh;")
     o-button.action-button Invite
-      img(class="icon" src="/public/share.svg" style="width: 32px; margin-bottom: -5px; margin-left: 10px;")
+      img(class="icon" src="/public/icons/share.svg" style="width: 32px; margin-bottom: -5px; margin-left: 10px;")
     o-button.action-button(style="font-size: 24px") Copy link
-      img(class="icon" src="/public/copy.svg" style="width: 24px; margin-bottom: -10px; margin-left: 10px;")
+      img(class="icon" src="/public/icons/copy.svg" style="width: 24px; margin-bottom: -10px; margin-left: 10px;")
 </template>
 
 <style module lang="scss">

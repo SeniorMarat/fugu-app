@@ -17,18 +17,18 @@ async function disconnect() {
   o-dropdown(v-if="address")
     template(#trigger)
       o-button.wallet-button
-        img(class="icon" src="/public/wallet-ton-icon.svg" style="width: 18px; margin-right: 5px;")
+        img(class="icon" src="/public/icons/wallet-ton-icon.svg" style="width: 18px; margin-right: 5px;")
         | {{ display_address }}
     o-dropdown-item.disconnect-button(@click="disconnect") Disconnect
   o-button.connect-button(v-if="!address" @click="open")
-    .connect-button.content
-      img(class="icon" src="/public/wallet.svg" style="width: 50px;")
+    .connect-button-content
+      img(class="icon" src="/public/icons/wallet.svg" style="width: 50px;")
       | Connect Wallet
 
   pad(style="width: 360px; height: 385px")
     .balance-label Balance FUGU points
     .balance
-      img(src="/public/small_fugu.png" style="width: 35px;")
+      img(src="/public/fugu.svg" style="width: 35px;")
       | 130000$F
     .coming-soon coming soon...
     o-button.withdraw-button Windraft
@@ -79,7 +79,7 @@ async function disconnect() {
   border-radius: 20px;
 }
 
-.connect-button.content {
+.connect-button-content {
   display: flex;
   flex-direction: column;
   align-items: center;

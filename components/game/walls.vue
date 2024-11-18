@@ -15,7 +15,7 @@ const walls = ref<Array<Ref<{ y: number, img: string }>>>([
 ])
 
 function get_wall_path(name: string) {
-  return new URL(`/public/obstacles/${name}`, import.meta.url).href
+  return new URL(`/public/game/walls/${name}`, import.meta.url).href
 }
 onMounted(() => {
   setInterval(() => {

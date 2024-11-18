@@ -13,7 +13,7 @@ const props = defineProps<{
 }>()
 
 function get_svg_path(name: string) {
-  return new URL(`/public/${name}.svg`, import.meta.url).href
+  return new URL(`/public/icons/${name}.svg`, import.meta.url).href
 }
 
 const roundedClass = computed(() => {
