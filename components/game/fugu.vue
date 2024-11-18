@@ -79,7 +79,7 @@ defineExpose({ x, y, size })
 
 <template lang="pug">
 .fugu(:style="{ left: `${x}px`, top: `${y}px`, width: `${size}px`, height: `${size}px` }")
-  img(src="/public/angry-fugu.png" :style="{ width: '100%', transform }")
+  img(src="/public/fugu.svg" :style="{ width: '100%', transform }")
 </template>
 
 <style module lang="scss">
