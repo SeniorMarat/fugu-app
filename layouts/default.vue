@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const isMobile = "ontouchstart" in window
 </script>
 
 <template lang="pug">
@@ -6,7 +7,7 @@
   bubbles
   .main
     .page: nuxt-page
-  nav-bar
+  nav-bar(v-if="isMobile")
 </template>
 
 <style module lang="scss">

@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { OButton } from "@oruga-ui/oruga-next"
+
+const isMobile = "ontouchstart" in window
+
+if (!isMobile) {
+  window.location.href = "/no-access"
+}
 </script>
 
 <template lang="pug">
