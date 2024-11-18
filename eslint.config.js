@@ -14,25 +14,27 @@ export default config(
       quotes: "double",
     },
     rules: {
-      // always add if { ... } braces
-      "curly": ["error", "all"],
-      // allow console.log
-      "no-console": "warn",
-      // allow arrays [, a]
-      "no-sparse-arrays": "off",
-      // allow string + string
-      "prefer-template": "off",
-      // sort imports
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
-      "import/order": "off",
-      "sort-imports": "off",
-      // put if { at one line
-      "style/brace-style": ["error", "1tbs"],
-      // allow @ts-ignore
-      "ts/ban-ts-comment": "off",
-      // allow interace method as arrow fn
-      "ts/method-signature-style": "off",
+      "style/max-len": ["error", { code: 120, ignoreUrls: true }],
+      "no-alert": "warn",
+
+      "jsonc/indent": ["error", 2],
+      "style/quotes": ["error", "double", { avoidEscape: true, allowTemplateLiterals: true }],
+
+      "vue/html-quotes": "off",
+      "no-multi-str": "off",
+      "vue/custom-event-name-casing": "off",
+      "eqeqeq": "warn",
+      "no-cond-assign": "warn",
+      "no-unmodified-loop-condition": "warn",
+      "node/prefer-global/buffer": "warn",
+      "node/prefer-global/process": "warn",
+      "regexp/no-unused-capturing-group": "warn",
+      "ts/no-use-before-define": "warn",
+      "unused-imports/no-unused-vars": "warn",
+      "vue/eqeqeq": "warn",
+      "vue/no-restricted-v-bind": "warn",
+      "vue/no-unused-refs": "warn",
+
     },
   },
   {

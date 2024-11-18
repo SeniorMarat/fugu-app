@@ -10,15 +10,15 @@ const bonus_index = defineModel<number>("bonus_index", { required: true })
 const { width, height } = useWindowSize()
 const bonus_speed = 2.5
 
-interface bonus {
+interface Bonus {
   y: number
   size: number
   x: number
   type: "coin" | "bomb"
   image: string
 }
-const coin = ref<bonus>({ y: -200, size: 40, x: 10 + 50 / 2, type: "coin", image: "coin.svg" })
-const bomb = ref<bonus>({ y: -200, size: 45, x: width.value / 2 - 50 / 2, type: "bomb", image: "bomb.svg" })
+const coin = ref<Bonus>({ y: -200, size: 40, x: 10 + 50 / 2, type: "coin", image: "coin.svg" })
+const bomb = ref<Bonus>({ y: -200, size: 45, x: width.value / 2 - 50 / 2, type: "bomb", image: "bomb.svg" })
 
 const bonuses = ref([coin])
 let was_paused = false
@@ -28,7 +28,8 @@ watch(bonus_index, (new_index) => {
     if (bonuses.value[new_index].value.type === "coin") {
       bonuses.value.splice(new_index, 1)
       emit("coinCollected")
-    } else if (bonuses.value[new_index].value.type === "bomb") {
+    }
+    else if (bonuses.value[new_index].value.type === "bomb") {
       emit("bombCollected")
     }
   }
@@ -47,7 +48,8 @@ onMounted(() => {
           bonuses.value.splice(i, 1)
         }
       }
-    } else {
+    }
+    else {
       was_paused = true
     }
   }, 16)
@@ -63,9 +65,11 @@ onMounted(() => {
 function get_random_bonus() {
   const bonuses = [coin, bomb]
   const randomIndex = Math.floor(Math.random() * bonuses.length)
-  const bonus = ref<bonus>({ ...bonuses[randomIndex].value })
+  const bonus = ref<Bonus>({ ...bonuses[randomIndex].value })
   if (bonus.value.type === "coin") {
-    bonus.value.x = Math.random() > 0.5 ? width.value - (width.value * 0.15) - bonus.value.size / 2 : 10 + bonus.value.size / 2
+    bonus.value.x = Math.random() > 0.5
+      ? width.value - (width.value * 0.15) - bonus.value.size / 2
+      : 10 + bonus.value.size / 2
   }
   return bonus
 }
@@ -84,15 +88,24 @@ const hitboxes = computed(() => {
   })
 })
 
+function bonus_style(bonus: Ref<Bonus>) {
+  return {
+    height: `${bonus.value.size}px`,
+    left: `${bonus.value.x}px`,
+    width: `${bonus.value.size}px`,
+    top: `${bonus.value.y}px`,
+  }
+}
+
 defineExpose({ hitboxes })
 </script>
 
 <template lang="pug">
 .bonus-container
   .bonus(v-for="(bonus, index) in bonuses" :key="index")
-    .coin(v-if="bonus.value.type === 'coin'" :style="{ height: `${bonus.value.size}px`, left: `${bonus.value.x}px`, width: `${bonus.value.size}px`, top: `${bonus.value.y}px` }")
+    .coin(v-if="bonus.value.type === 'coin'" :style="bonus_style(bonus)")
       img(:src="get_bonus_path(bonus.value.image)" :style="{ width: `100%` }")
-    .bomb(v-if="bonus.value.type === 'bomb'" :style="{ height: `${bonus.value.size}px`, left: `${bonus.value.x}px`, width: `${bonus.value.size}px`, top: `${bonus.value.y}px` }")
+    .bomb(v-if="bonus.value.type === 'bomb'" :style="bonus_style(bonus)")
       img(:src="get_bonus_path(bonus.value.image)" :style="{ width: `100%` }")
 </template>
 

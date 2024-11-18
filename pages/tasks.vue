@@ -9,7 +9,7 @@ const tasks = ref<{ label: string, reward: number, type: "nickname" | "invite" |
 </script>
 
 <template lang="pug">
-div(style="display: flex; flex-direction:column; justify-content: center; align-items: center; width: 100vw; padding-top: 5vh;")
+.tasks
   .title Fortune
   pad(style="width: 180px; height: 160px")
     img.fortune-circle(src="/public/big-wheel2.png" style="width: 170px;" @click="() => $router.push('/fortune')")
@@ -18,6 +18,15 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
 </template>
 
 <style module lang="scss">
+.tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-top: 5vh;
+}
+
 .title {
   font-size: 24px;
   font-weight: 500;

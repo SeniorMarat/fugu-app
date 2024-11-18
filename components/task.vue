@@ -11,7 +11,10 @@ const props = defineProps<{ label: string, value: number, type: "nickname" | "in
     .value +{{ props.value }} $FUGU
     o-button.check Check
     o-button.action(v-if="props.type !== 'nickname' && props.type !== 'invite'")
-      img(v-if="props.type === 'transaction'" class="icon" src="/public/bubbles/ton.png" style="width: 20px; margin-top: 3px")
+      img(
+        v-if="props.type === 'transaction'"
+        class="icon" src="/public/bubbles/ton.png" style="width: 20px; margin-top: 3px"
+      )
       div(v-if="props.type === 'subscribe'") Join
     o-button.count(v-if="props.type === 'invite'") 9 / 10
 </template>

@@ -4,7 +4,7 @@ import { useTonAddress, useTonConnectModal, useTonConnectUI } from "@townsquarel
 
 const address = useTonAddress()
 const { open } = useTonConnectModal()
-const display_address = computed(() => address.value.slice(0, 3) + "..." + address.value.slice(-3))
+const display_address = computed(() => `${address.value.slice(0, 3)}...${address.value.slice(-3)}`)
 const [TonConnectUI] = useTonConnectUI()
 
 async function disconnect() {
@@ -21,7 +21,7 @@ async function disconnect() {
         | {{ display_address }}
     o-dropdown-item.disconnect-button(@click="disconnect") Disconnect
   o-button.connect-button(v-if="!address" @click="open")
-    div(style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; width: 100%;")
+    .connect-button.content
       img(class="icon" src="/public/wallet.svg" style="width: 50px;")
       | Connect Wallet
 
@@ -77,6 +77,14 @@ async function disconnect() {
   font-size: 20px;
   font-weight: 500;
   border-radius: 20px;
+}
+
+.connect-button.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .wallet-button {

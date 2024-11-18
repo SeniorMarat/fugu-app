@@ -2,7 +2,7 @@
 </script>
 
 <template lang="pug">
-div(style="display: flex; flex-direction:column; justify-content: center; align-items: center; width: 100vw; padding-top: 5vh; overflow: hidden;")
+.fortune
   pad(style="width: 90%; height: 70vh; position: relative;")
     o-button.count-button(@click="() => $router.push('/shop')")
       img(class="icon" src="/public/plus-circle.svg" style="width: 35px; margin-left: 10px")
@@ -12,6 +12,16 @@ div(style="display: flex; flex-direction:column; justify-content: center; align-
 </template>
 
 <style module lang="scss">
+.fortune {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-top: 2vh;
+  overflow: hidden;
+}
+
 .count-button {
   position: absolute;
   top: 20px;

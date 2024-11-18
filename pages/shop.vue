@@ -23,7 +23,8 @@ function send_transaction() {
 function send_donat() {
   if (wallet.value) {
     send_transaction()
-  } else {
+  }
+  else {
     open()
   }
 }
@@ -31,7 +32,11 @@ function send_donat() {
 
 <template lang="pug">
 div
-  nav-button(label="support ocean" path="shop" icon="heart" :on-click="send_donat" style="width: 100px; height: 100px; position:fixed; top: 50%;; left: 50%; transform: translate(-50%, -50%);")
+  nav-button(
+    label="support ocean" path="shop" icon="heart"
+    :on-click="send_donat"
+    style="width: 100px; height: 100px; position:fixed; top: 50%;; left: 50%; transform: translate(-50%, -50%);"
+  )
 </template>
 
 <style modula lang="scss">

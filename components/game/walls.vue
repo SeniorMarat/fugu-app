@@ -8,7 +8,11 @@ const { height } = useWindowSize()
 const wall_speed = ref(2.5)
 const wall_height = computed(() => height.value / 2.0)
 
-const walls = ref<Array<Ref<{ y: number, img: string }>>>([ref({ y: wall_height.value, img: "wall6.svg" }), ref({ y: +5, img: "wall5.svg" }), ref({ y: -wall_height.value + 10, img: "wall6.svg" })])
+const walls = ref<Array<Ref<{ y: number, img: string }>>>([
+  ref({ y: wall_height.value, img: "wall6.svg" }),
+  ref({ y: +5, img: "wall5.svg" }),
+  ref({ y: -wall_height.value + 10, img: "wall6.svg" }),
+])
 
 function get_wall_path(name: string) {
   return new URL(`/public/obstacles/${name}`, import.meta.url).href
@@ -35,8 +39,14 @@ onMounted(() => {
 <template lang="pug">
 .walls-container(:style="{ height: `${height}px` }")
   div(v-for="(wall, index) in walls" :key="index")
-    img(:src="get_wall_path(wall.value.img)" :style="{ height: `${wall_height}px`, left: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
-    img(:src="get_wall_path(wall.value.img)" :style="{ height: `${wall_height}px`, right: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }")
+    img(
+      :src="get_wall_path(wall.value.img)"
+      :style="{ height: `${wall_height}px`, left: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }"
+    )
+    img(
+      :src="get_wall_path(wall.value.img)"
+      :style="{ height: `${wall_height}px`, right: '-6.4vh', top: `${wall.value.y}px`, position: 'absolute' }"
+    )
 </template>
 
 <style module lang="scss">

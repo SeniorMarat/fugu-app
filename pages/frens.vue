@@ -6,7 +6,11 @@ interface fren {
   amount: number
 }
 
-const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", amount: 1000 }, { name: "Yan", amount: 100 }])
+const friends = ref<fren[]>([
+  { name: "Marat", amount: 1000 },
+  { name: "Andrey", amount: 1000 },
+  { name: "Yan", amount: 100 },
+])
 </script>
 
 <template lang="pug">
@@ -21,12 +25,20 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
     .side-text Refs invited: {{ friends.length }}
   pad(style="width: 95%; justify-content: flex-start; height: 49vh; padding-top: 10px;")
     div(v-if="friends.length > 0" style="width: 100%")
-      div(v-for="(friend, index) in friends" :key="index" style="display: flex; flex-direction: column; align-items: center; width: 100%; height: 45px" @click="friends.splice(index, 1)")
-        div(style="display: flex; flex-direction: row; align-items: center; width: 100%; margin-left: 20px; margin-bottom: 10px;")
+      div(
+        v-for="(friend, index) in friends"
+        :key="index"
+        style="display: flex; flex-direction: column; align-items: center; width: 100%; height: 45px"
+        @click="friends.splice(index, 1)"
+      )
+        .friend-row
           img(src="/public/small_fugu.png" style="width: 20px; margin-right: 10px;")
           .friend-name {{ friend.name }}
         img(src="/public/separator.svg" class="icon" style="width: 100%; margin-left: 10px; margin-right: 10px;")
-    div(v-if="friends.length === 0" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;")
+    div(
+      v-if="friends.length === 0"
+      style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;"
+    )
       .empty-text Looks like
       .empty-text you haven't invited anyone yet
       img(src="/public/angry-fugu.png" style="width: 300px;")
@@ -82,6 +94,15 @@ const friends = ref<fren[]>([{ name: "Marat", amount: 1000 }, { name: "Andrey", 
   font-size: 11px;
   font-weight: 400;
   color: #fff;
+}
+
+.friend-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 
 .friend-name {

@@ -35,7 +35,8 @@ onMounted(() => {
           obstacles.value.splice(i, 1)
         }
       }
-    } else {
+    }
+    else {
       was_paused = true
     }
   }, 16)
@@ -69,15 +70,25 @@ const hitboxes = computed(() => {
   })
 })
 
+function obstacle_style(obstacle: Ref<Obstacle>) {
+  return {
+    height: `${obstacle.value.height}px`,
+    left: `${obstacle.value.type === "right" ? width.value - obstacle.value.width : 0}px`,
+    width: `${obstacle.value.width}px`,
+    top: `${obstacle.value.y}px`,
+
+  }
+}
+
 defineExpose({ hitboxes })
 </script>
 
 <template lang="pug">
 .obstacle-container
   .obstacle(v-for="(obstacle, index) in obstacles" :key="index")
-    .left(v-if="obstacle.value.type === 'left'" :style="{ height: `${obstacle.value.height}px`, left: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
+    .left(v-if="obstacle.value.type === 'left'" :style="obstacle_style(obstacle)")
       img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: `100%`, transform: 'rotate(90deg)' }")
-    .right(v-if="obstacle.value.type === 'right'" :style="{ height: `${obstacle.value.height}px`, right: `0px`, width: `${obstacle.value.width}px`, top: `${obstacle.value.y}px` }")
+    .right(v-if="obstacle.value.type === 'right'" :style="obstacle_style(obstacle)")
       img(:src="get_obstacle_path(obstacle.value.image)" :style="{ width: `100%`, transform: 'rotate(-90deg)' }")
 </template>
 

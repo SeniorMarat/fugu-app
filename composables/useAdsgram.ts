@@ -35,7 +35,8 @@ export function useAdsgram({ blockId, onReward, onError }: UseAdsgramParams): Us
           // user get error during playing ad or skip ad
           onError?.(result)
         })
-    } else {
+    }
+    else {
       onError?.({
         error: true,
         done: false,

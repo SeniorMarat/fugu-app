@@ -17,16 +17,16 @@ type EventType = "onReward" | "onStart" | "onSkip" | "onBannerNotFound" | "onErr
 type HandlerType = () => void
 
 export interface AdController {
-  show(): Promise<ShowPromiseResult>
-  addEventListener(event: EventType, handler: HandlerType): void
-  removeEventListener(event: EventType, handler: HandlerType): void
-  destroy(): void
+  show: () => Promise<ShowPromiseResult>
+  addEventListener: (event: EventType, handler: HandlerType) => void
+  removeEventListener: (event: EventType, handler: HandlerType) => void
+  destroy: () => void
 }
 
 declare global {
   interface Window {
     Adsgram?: {
-      init(params: AdsgramInitParams): AdController
+      init: (params: AdsgramInitParams) => AdController
     }
   }
 }

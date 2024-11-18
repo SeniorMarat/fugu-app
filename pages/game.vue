@@ -86,7 +86,12 @@ const bonus_index = computed(() => {
     const hitboxes = bonuses_ref.value.hitboxes
     for (let i = 0; i < hitboxes.length; i++) {
       const hitbox = hitboxes[i]
-      if (Math.sqrt((hitbox.x - fugu_ref.value.x - fugu_ref.value.size / 2) ** 2 + (hitbox.y + hitbox.size / 2 - fugu_ref.value.y - fugu_ref.value.size / 2) ** 2) < hitbox.size / 2 + fugu_ref.value.size / 2) {
+      if (
+        Math.sqrt(
+          (hitbox.x - fugu_ref.value.x - fugu_ref.value.size / 2) ** 2
+          + (hitbox.y + hitbox.size / 2 - fugu_ref.value.y - fugu_ref.value.size / 2) ** 2,
+        ) < hitbox.size / 2 + fugu_ref.value.size / 2
+      ) {
         touching_bonus_index = i
         break
       }
@@ -106,7 +111,13 @@ watch(is_colliding, (new_value) => {
 <template lang="pug">
 .page
   gameScore(:score="score")
-  bonuses(ref="bonuses_ref" v-model:bonus_index="bonus_index" :is-paused="is_game_paused" @coin-collected="score += 1" @bomb-collected="is_game_paused = true, show_modal = true")
+  bonuses(
+    ref="bonuses_ref"
+    v-model:bonus_index="bonus_index"
+    :is-paused="is_game_paused"
+    @coin-collected="score += 1"
+    @bomb-collected="is_game_paused = true, show_modal = true"
+  )
   obstacles(ref="obstacles_ref" :is-paused="is_game_paused")
   walls(:is-paused="is_game_paused")
   fugu(ref="fugu_ref" :is-paused="is_game_paused")
@@ -117,9 +128,12 @@ watch(is_colliding, (new_value) => {
       pad(style="width: 90%")
         div.description multiply profit
         o-button.action-button(style="font-size: 24px" @click="showAd") Watch ads
-      div(style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 90%; margin-top: 3vh;")
+      .buttons-container
         o-button.action-button(style="font-size: 24px; background: #3091FF;" tag="router-link" to="/") Menu
-        o-button.action-button(style="font-size: 24px" @click="score = 0; is_game_paused = false; show_modal = false") Again
+        o-button.action-button(
+          style="font-size: 24px"
+          @click="score = 0; is_game_paused = false; show_modal = false"
+        ) Again
 </template>
 
 <style module lang="scss">
@@ -172,6 +186,15 @@ watch(is_colliding, (new_value) => {
   line-height: 36.31px;
   text-align: left;
   color: #ffffff;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 3vh;
 }
 
 .action-button {
